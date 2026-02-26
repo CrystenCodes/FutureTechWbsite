@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title> Introduction to Coding </title>
+<style>
+  html,body{height:100%;margin:0}
+  body{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:0;
+    background:
+      linear-gradient(180deg,#fbfbfb 0%, #f7d2d2 50%, #f3f3f3 100%);
+    font-family:system-ui,Arial,sans-serif;
+  }
+
+  body { position: relative; }
+video.player{
+  position: absolute;
+  right: 40px;
+  top: 40px;
+  width: 550px;
+  height: 100%;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+}
+
+
+  middle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+  h1 {
+  position: absolute;
+  left: 40px;
+  top: 5%;
+  transform: translateY(-50%);
+}
+
+.interactive-content {
+  left: 40px;
+  top: 15%; 
+  width: 1000px; 
+  padding-right: 20px;
+  line-height: 1.6;
+  position: absolute;
+  cursor: text; 
+  user-select: text;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(206, 187, 187, 0.9);
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+
+.tools-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.tool-btn {
+  padding: 12px 25px;
+  background-color: #333;
+  color: #fff;
+  border: 2px solid #555;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.tool-btn:hover {
+  background-color: #555;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.2);
+}
+
+.tool-btn.active {
+  background-color: #ffff00;
+  color: #000;
+  border-color: #ffff00;
+}
+
+.highlighted {
+  background-color: yellow;
+  color: black;
+}
+
+.content {
+  padding: 40px;
+  margin-bottom: 150px;
+}
+
+  p {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 10px; 
+  margin: 0 0 15px 0; 
+  position: relative;
+}
+
+
+
+</style>
+</head>
+<body>
+<h1> Welcome to the basics </h1>
+<div id="content" class="interactive-content"> 
+  <p> 7th month: Introduction to coding </p>
+  <br>
+  <p> Coding is what computers need to understand it's basically computer language </p>
+  <p> you can make websites, machines or even applications through coding)</p>
+  <p> there are several types of coding languages including:</p>
+  <p> HTML: the easiest coding language used for structural web </p>
+  <p> Javascript: used for web development</p>
+  <a> css: used for web designs</a>
+  <p> all of them correlate to making a website; there are other coding languages but these three are used most in web developing </p>
+  <iframe id="player" src="https://www.youtube.com/embed/4Dz-LGIxzBg" frameborder="0" allowfullscreen></iframe>
+
+</div>
+
+<footer class="footer">
+  <div class="tools-container">
+    <button class="tool-btn" id="highlighterBtn" onclick="selectTool('highlighter', this)" title="Highlighter"> Highlighter </button>
+    <button class="tool-btn" id="eraserBtn" onclick="selectTool('eraser', this)" title="Eraser">
+   Eraser
+</button>    
+  </div>
+</footer>
+
+
+  <div class="middle" aria-hidden="true"></div>
+
+
+  <script>
+
+
+const TOOLS = {
+  HIGHLIGHTER: 'highlighter',
+  ERASER: 'eraser'
+};
+
+let currentTool = null;
+
+// Sets the active tool and updates button UI
+function selectTool(tool, element) {
+  currentTool = tool;
+  document.querySelectorAll('.tool-btn').forEach(btn => btn.classList.remove('active'));
+  if (element) {
+    element.classList.add('active');
+  }
+}
+
+// Listens for text selection
+document.addEventListener('mouseup', () => {
+  setTimeout(() => {
+    const selection = window.getSelection();
+    
+    if (!currentTool || selection.isCollapsed) return;
+
+    const range = selection.getRangeAt(0);
+    const container = range.commonAncestorContainer;
+    const interactiveContent = (container.nodeType === 1 ? container : container.parentElement)
+                                .closest('.interactive-content');
+
+    if (!interactiveContent) return;
+
+    if (currentTool === TOOLS.ERASER) {
+      removeFormatting(range);
+    } else {
+      applyFormatting(range, currentTool);
+    }
+
+    selection.removeAllRanges();
+  }, 20);
+});
+function applyFormatting(range, tool) {
+  const span = document.createElement('span');
+  span.className = 'highlighted';
+  
+  try {
+    range.surroundContents(span);
+  } catch (e) {
+    
+    const contents = range.extractContents();
+    span.appendChild(contents);
+    range.insertNode(span);
+  }
+}
+
+function removeFormatting(range) {
+  const container = range.commonAncestorContainer;
+  const parentSpan = (container.nodeType === 1 ? container : container.parentElement)
+                      .closest('.highlighted');
+
+  if (parentSpan) {
+    const parent = parentSpan.parentNode;
+    while (parentSpan.firstChild) {
+      parent.insertBefore(parentSpan.firstChild, parentSpan);
+    }
+    parent.removeChild(parentSpan);
+    parent.normalize();
+  }
+}
+
+
+
+  
+
+
+
+  </script>
+</body>
+</html>

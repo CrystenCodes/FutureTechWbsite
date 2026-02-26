@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pages Quiz</title>
+    <style>
+        body {
+            background-color: blanchedalmond;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        #lessons a {
+            line-break: normal;
+            text-decoration: none;
+            color: black;
+        }
+
+        .quiz-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #d2b48c;
+            max-width: 600px;
+            margin-bottom: 20px;
+        }
+
+        .question {
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #deb887;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #cd853f;
+        }
+
+        #result {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #2e8b57;
+        }
+    </style>
+</head>
+<body>
+
+<h1> Quizzes </h1>
+
+<div class="quiz-box" id="Questions"> 
+    <p class="question">1. What is Web 2.0?</p>
+    <input type="radio" name="q1" value="a"> A Read-only web with static content<br>
+    <input type="radio" name="q1" value="b"> A Read-write web where users can interact and create content<br>
+    <input type="radio" name="q1" value="c"> A purely theoretical web that doesn't exist yet<br>
+
+    <p class="question">2. Which type of AI is currently still a "theoretical concept"?</p>
+    <input type="radio" name="q2" value="a"> Narrow AI (Siri/Alexa)<br>
+    <input type="radio" name="q2" value="b"> General AI<br>
+    <input type="radio" name="q2" value="c"> Chatbots like ChatGPT<br>
+
+    <p class="question">3. What is the main goal of Assistive Media?</p>
+    <input type="radio" name="q3" value="a"> To make websites look more colorful<br>
+    <input type="radio" name="q3" value="b"> To help people with disabilities access information<br>
+    <input type="radio" name="q3" value="c"> To speed up internet connections<br>
+
+    <button onclick="checkAnswers()">Check Answers</button>
+    <p id="result"></p>
+</div>
+
+<hr>
+<h3>Reference Lesson Image:</h3>
+<img src="c:\Users\ASUS-Pc\OneDrive\Pictures\Screenshots\Screenshot 2026-02-15 144855.png" alt="Yahoo Web 1.0" style="width:400px; height:auto; border: 1px solid #000;">
+
+<script>
+    function checkAnswers() {
+        let score = 0;
+        let total = 3;
+        
+        // Check Q1
+        let q1 = document.querySelector('input[name="q1"]:checked');
+        if (q1 && q1.value === "b") score++;
+
+        // Check Q2
+        let q2 = document.querySelector('input[name="q2"]:checked');
+        if (q2 && q2.value === "b") score++;
+
+        // Check Q3
+        let q3 = document.querySelector('input[name="q3"]:checked');
+        if (q3 && q3.value === "b") score++;
+
+        document.getElementById("result").innerHTML = "You scored " + score + " out of " + total + "!";
+    }
+</script>
+
+</body>
+</html>

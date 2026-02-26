@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Multimedia & Web Generations Quiz</title>
+    <style>
+        body {
+            background-color: blanchedalmond;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            line-height: 1.6;
+            color: #2c3e50;
+        }
+
+        .quiz-box {
+            background-color: white;
+            padding: 25px;
+            border-radius: 12px;
+            border: 2px solid #d2b48c;
+            max-width: 750px;
+            margin: 0 auto 30px auto;
+            box-shadow: 3px 3px 10px rgba(0,0,0,0.05);
+        }
+
+        h1 { text-align: center; color: #5d4037; }
+        h2 { border-bottom: 2px solid #deb887; padding-bottom: 5px; color: #8b4513; }
+
+        .question {
+            font-weight: bold;
+            margin-top: 20px;
+            display: block;
+        }
+
+        .option {
+            margin: 8px 0;
+            display: block;
+        }
+
+        button {
+            margin-top: 25px;
+            padding: 12px 25px;
+            background-color: #deb887;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #cd853f;
+            color: white;
+        }
+
+        .result-text {
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #2e8b57;
+        }
+
+        .reference-box {
+            font-size: 0.85em;
+            color: #7f8c8d;
+            background: #fdfaf6;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<h1> ICT & Multimedia Mastery </h1>
+
+<div class="quiz-box" id="MultimediaQuiz">
+    <h2>Multimedia & User Participation</h2>
+    
+    <p class="question">1. What defines "Rich Content" in an online environment?</p>
+    <label class="option"><input type="radio" name="m1" value="a"> Plain text documents and simple lists</label>
+    <label class="option"><input type="radio" name="m1" value="b"> Content like videos, animations, and interactive features that go beyond plain text</label>
+
+    <p class="question">2. Which web generation describes users as "Data Owners" in a decentralized ecosystem?</p>
+    <label class="option"><input type="radio" name="m2" value="a"> Web 2.0 (The Social Web)</label>
+    <label class="option"><input type="radio" name="m2" value="b"> Web 3.0 (The Semantic/Decentralized Web)</label>
+
+    <p class="question">3. According to your notes, what is a key indicator of effective rich media integration?</p>
+    <label class="option"><input type="radio" name="m3" value="a"> Active user participation (commenting, sharing, creating)</label>
+    <label class="option"><input type="radio" name="m3" value="b"> Simply having a high number of images on a page</label>
+
+    <p class="question">4. Which type of interactivity allows users to receive responses and navigate content based on their choices?</p>
+    <label class="option"><input type="radio" name="m4" value="a"> Passive Interactivity</label>
+    <label class="option"><input type="radio" name="m4" value="b"> Dynamic/Active Interactivity</label>
+
+    <p class="question">5. In Web 1.0, what was the primary role of the user?</p>
+    <label class="option"><input type="radio" name="m5" value="a"> Producers and Consumers</label>
+    <label class="option"><input type="radio" name="m5" value="b"> Passive Consumers of static content</label>
+
+    <button onclick="checkMultimediaQuiz()">Submit Answers</button>
+    <p id="mResult" class="result-text"></p>
+    
+    <div class="reference-box">
+        <strong>Source Materials:</strong> Miller (2025), Peláez & Solano (2023), and Nasar (2023).
+    </div>
+</div>
+
+<script>
+    function checkMultimediaQuiz() {
+        let score = 0;
+        let total = 5;
+
+        // Correct Answers: 1:b, 2:b, 3:a, 4:b, 5:b
+        if (document.querySelector('input[name="m1"]:checked')?.value === "b") score++;
+        if (document.querySelector('input[name="m2"]:checked')?.value === "b") score++;
+        if (document.querySelector('input[name="m3"]:checked')?.value === "a") score++;
+        if (document.querySelector('input[name="m4"]:checked')?.value === "b") score++;
+        if (document.querySelector('input[name="m5"]:checked')?.value === "b") score++;
+
+        const resultDisplay = document.getElementById("mResult");
+        resultDisplay.innerHTML = "Final Score: " + score + " / " + total;
+        
+        if (score === total) {
+            resultDisplay.style.color = "green";
+            resultDisplay.innerHTML += " - Perfect! You are an ICT Expert!";
+        } else {
+            resultDisplay.style.color = "#d35400";
+        }
+    }
+</script>
+
+</body>
+</html>

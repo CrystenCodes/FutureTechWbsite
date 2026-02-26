@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title> Artificial Intelligence </title>
+<style>
+  html,body{height:100%;margin:0}
+  body{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:0;
+    background:
+      linear-gradient(180deg,#fbfbfb 0%, #f7d2d2 50%, #f3f3f3 100%);
+    font-family:system-ui,Arial,sans-serif;
+  }
+
+  body { position: relative; }
+video.player{
+  position: absolute;
+  right: 40px;
+  top: 40px;
+  width: 550px;
+  height: 100%;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+}
+
+
+  middle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+  h1 {
+  position: absolute;
+  left: 40px;
+  top: 5%;
+  transform: translateY(-50%);
+}
+
+.interactive-content {
+  left: 40px;
+  top: 15%; 
+  width: 1000px; 
+  padding-right: 20px;
+  line-height: 1.6;
+  position: absolute;
+  cursor: text; 
+  user-select: text;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(206, 187, 187, 0.9);
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+
+.tools-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.tool-btn {
+  padding: 12px 25px;
+  background-color: #333;
+  color: #fff;
+  border: 2px solid #555;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.tool-btn:hover {
+  background-color: #555;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.2);
+}
+
+.tool-btn.active {
+  background-color: #ffff00;
+  color: #000;
+  border-color: #ffff00;
+}
+
+.highlighted {
+  background-color: yellow;
+  color: black;
+}
+
+.content {
+  padding: 40px;
+  margin-bottom: 150px;
+}
+
+  p {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 10px; 
+  margin: 0 0 15px 0; 
+  position: relative;
+}
+
+
+
+</style>
+</head>
+<body>
+<h1> Welcome to the basics </h1>
+<div id="content" class="interactive-content"> 
+  <p> Second Week: the current state of ICT technologies </p>
+  <br>
+  <p> Artificial Intelligence In Computers </p>
+  <p> AI(Artificial Intelligence) refers to computer systems that are able to do complex tasks only humans could do(historically)</p>
+  <p> there are many types of AI Including:</p>
+  <p> Narrow: Designed for specific tasks and narrow tasks, but lacks generalization of tasks </p>
+  <p> like siri, or alexa</p>
+  <p> General: Designed to perform any intellectual task that a human can do, with the ability to understand, learn, and apply knowledge across a wide range of tasks </p>
+  <p> it is still a theoretical concept as researchers said</p>
+  <p> SuperIntelligent: Surpasses the human mind and can do complex tasks but merely just a theory. </p>
+  <br>
+
+  <p> each and individual AI has a function built on certain and different areas of work/tasks </p>
+  <p> for example  </p>
+  <p> chatgpt: a chatbot that could easily generates images, information and code for you </p>
+  <p> wix: a website builder app that could generate web design and code for you</p>
+  <p> meta ai: an chatbot AI that specializes in chatting the user</p>
+
+</div>
+
+<footer class="footer">
+  <div class="tools-container">
+    <button class="tool-btn" id="highlighterBtn" onclick="selectTool('highlighter', this)" title="Highlighter"> Highlighter </button>
+    <button class="tool-btn" id="eraserBtn" onclick="selectTool('eraser', this)" title="Eraser">
+   Eraser
+</button>    
+  </div>
+</footer>
+
+
+  <div class="middle" aria-hidden="true"></div>
+
+
+  <script>
+
+
+const TOOLS = {
+  HIGHLIGHTER: 'highlighter',
+  ERASER: 'eraser'
+};
+
+let currentTool = null;
+
+// Sets the active tool and updates button UI
+function selectTool(tool, element) {
+  currentTool = tool;
+  document.querySelectorAll('.tool-btn').forEach(btn => btn.classList.remove('active'));
+  if (element) {
+    element.classList.add('active');
+  }
+}
+
+// Listens for text selection
+document.addEventListener('mouseup', () => {
+  setTimeout(() => {
+    const selection = window.getSelection();
+    
+    if (!currentTool || selection.isCollapsed) return;
+
+    const range = selection.getRangeAt(0);
+    const container = range.commonAncestorContainer;
+    const interactiveContent = (container.nodeType === 1 ? container : container.parentElement)
+                                .closest('.interactive-content');
+
+    if (!interactiveContent) return;
+
+    if (currentTool === TOOLS.ERASER) {
+      removeFormatting(range);
+    } else {
+      applyFormatting(range, currentTool);
+    }
+
+    selection.removeAllRanges();
+  }, 20);
+});
+function applyFormatting(range, tool) {
+  const span = document.createElement('span');
+  span.className = 'highlighted';
+  
+  try {
+    range.surroundContents(span);
+  } catch (e) {
+    
+    const contents = range.extractContents();
+    span.appendChild(contents);
+    range.insertNode(span);
+  }
+}
+
+function removeFormatting(range) {
+  const container = range.commonAncestorContainer;
+  const parentSpan = (container.nodeType === 1 ? container : container.parentElement)
+                      .closest('.highlighted');
+
+  if (parentSpan) {
+    const parent = parentSpan.parentNode;
+    while (parentSpan.firstChild) {
+      parent.insertBefore(parentSpan.firstChild, parentSpan);
+    }
+    parent.removeChild(parentSpan);
+    parent.normalize();
+  }
+}
+
+
+
+  
+
+
+
+  </script>
+</body>
+</html>
