@@ -14,20 +14,9 @@ html, body {
 
 body {
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
-  justify-content: flex-start;
   padding: 40px;
-}
-
-/* Video styling */
-video.player, iframe.player {
-  position: absolute;
-  right: 40px;
-  top: 40px;
-  width: 550px;
-  height: 315px;
-  border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
 }
 
 /* Interactive content */
@@ -55,7 +44,7 @@ p {
   margin-bottom: 15px;
 }
 
-/* Highlighter buttons */
+/* Footer Highlighter/Eraser */
 .footer {
   position: fixed;
   bottom: 0;
@@ -103,6 +92,17 @@ p {
   background-color: yellow;
   color: black;
 }
+
+/* Video at bottom-right */
+iframe.player {
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  width: 550px;
+  height: 315px;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+}
 </style>
 </head>
 <body>
@@ -124,7 +124,7 @@ p {
   <p>When used properly, these tools improve productivity, accountability, and overall quality of ICT content by streamlining workflows and strengthening coordination among team members.</p>
 </div>
 
-<!-- YouTube video -->
+<!-- YouTube video at bottom-right -->
 <iframe class="player" 
   src="https://www.youtube.com/embed/h6LoDb7ehC8" 
   title="YouTube video player" 
