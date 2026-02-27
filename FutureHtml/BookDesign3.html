@@ -9,24 +9,29 @@ html, body {
   margin: 0;
   font-family: system-ui, Arial, sans-serif;
   background: linear-gradient(180deg,#fbfbfb 0%, #f7d2d2 50%, #f3f3f3 100%);
-  position: relative;
 }
 
 body {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  justify-content: center;
   padding: 40px;
 }
 
-/* Interactive content */
+/* Container for text and video side by side */
+.main-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* Text content */
 .interactive-content {
-  max-width: 900px;
+  max-width: 650px;
   line-height: 1.6;
   cursor: text;
   user-select: text;
-  position: relative;
-  z-index: 2;
 }
 
 /* Headings */
@@ -42,6 +47,20 @@ p {
   font-size: 16px;
   color: #333;
   margin-bottom: 15px;
+}
+
+/* Video next to text */
+.video-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* push video toward bottom */
+}
+
+.video-container iframe {
+  width: 550px;
+  height: 315px;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
 }
 
 /* Footer Highlighter/Eraser */
@@ -92,48 +111,39 @@ p {
   background-color: yellow;
   color: black;
 }
-
-/* Video at bottom-right */
-iframe.player {
-  position: fixed;
-  right: 40px;
-  bottom: 40px;
-  width: 550px;
-  height: 315px;
-  border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
-}
 </style>
 </head>
 <body>
 
-<div class="interactive-content">
-  <h1>Welcome to the basics</h1>
+<div class="main-container">
+  <div class="interactive-content">
+    <h1>Welcome to the basics</h1>
 
-  <p>Collaborative Development of ICT Content</p>
-  <p><strong>2. Online Collaborative Tools and Processes:</strong></p>
+    <p>Collaborative Development of ICT Content</p>
+    <p><strong>2. Online Collaborative Tools and Processes:</strong></p>
 
-  <p>These are digital tools that allow team members to work together online. Tools like shared documents, cloud storage, and messaging platforms help in real-time editing, file sharing, and communication, making collaboration faster and more organized.</p>
+    <p>These are digital tools that allow team members to work together online. Tools like shared documents, cloud storage, and messaging platforms help in real-time editing, file sharing, and communication, making collaboration faster and more organized.</p>
 
-  <p>Online collaborative tools also enable multiple users to contribute to the same project simultaneously, improving teamwork efficiency and reducing delays caused by traditional file sharing methods.</p>
+    <p>Online collaborative tools also enable multiple users to contribute to the same project simultaneously, improving teamwork efficiency and reducing delays caused by traditional file sharing methods.</p>
 
-  <p>Many modern platforms include version history, commenting systems, and task notifications, which help teams monitor progress, review changes, and maintain clear communication throughout the development process.</p>
+    <p>Many modern platforms include version history, commenting systems, and task notifications, which help teams monitor progress, review changes, and maintain clear communication throughout the development process.</p>
 
-  <p>Using cloud-based collaboration also supports remote and hybrid teams, allowing members to participate from different locations while keeping files synchronized and secure.</p>
+    <p>Using cloud-based collaboration also supports remote and hybrid teams, allowing members to participate from different locations while keeping files synchronized and secure.</p>
 
-  <p>When used properly, these tools improve productivity, accountability, and overall quality of ICT content by streamlining workflows and strengthening coordination among team members.</p>
+    <p>When used properly, these tools improve productivity, accountability, and overall quality of ICT content by streamlining workflows and strengthening coordination among team members.</p>
+  </div>
+
+  <div class="video-container">
+    <iframe class="player" 
+      src="https://www.youtube.com/embed/h6LoDb7ehC8" 
+      title="YouTube video player" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+      allowfullscreen>
+    </iframe>
+  </div>
 </div>
 
-<!-- YouTube video at bottom-right -->
-<iframe class="player" 
-  src="https://www.youtube.com/embed/h6LoDb7ehC8" 
-  title="YouTube video player" 
-  frameborder="0" 
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-  allowfullscreen>
-</iframe>
-
-<!-- Footer Highlighter/Eraser -->
 <footer class="footer">
   <div class="tools-container">
     <button class="tool-btn" id="highlighterBtn" onclick="selectTool('highlighter', this)" title="Highlighter">Highlighter</button>
@@ -200,4 +210,4 @@ function removeFormatting(range) {
 }
 </script>
 </body>
-</html>
+  </html>
