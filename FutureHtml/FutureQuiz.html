@@ -58,15 +58,6 @@
         overflow-y: auto;
     }
 
-    .instructions {
-        background-color: #f4f4f4;
-        padding: 15px;
-        border-radius: 10px;
-        margin-bottom: 20px;
-        font-size: 1.1em;
-        color: #333;
-    }
-
     .question {
         font-weight: bold;
         margin-top: 25px;
@@ -104,10 +95,18 @@
 
     .quiz-img {
         width: 100%;
-        max-height: 450px; /* taller now */
+        max-height: 450px;
         object-fit: cover;
         border-radius: 10px;
         box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .instructions {
+        background-color: #f4f4f4;
+        padding: 15px;
+        border-radius: 10px;
+        font-size: 1.1em;
+        color: #333;
     }
 
     .check-section {
@@ -136,16 +135,25 @@
         text-align: center;
     }
 
+    /* ===== Responsive ===== */
     @media (max-width: 900px) {
         .quiz-layout {
             flex-direction: column;
         }
+
         .quiz-left, .quiz-right {
             flex: none;
             width: 100%;
         }
+
         .quiz-img {
             max-height: 300px;
+        }
+
+        /* Move instructions below questions for mobile */
+        .instructions {
+            order: 10;
+            margin-top: 20px;
         }
     }
 </style>
@@ -159,13 +167,8 @@
 
 <div class="quiz-layout">
 
-    <!-- Left side: instructions + questions -->
+    <!-- Left side: questions -->
     <div class="quiz-left">
-        <div class="instructions">
-            🔹 Read each question carefully.<br>
-            🔹 Choose one correct answer per question.<br>
-            🔹 Click "Check Answers" to see your score.
-        </div>
 
         <div class="question">1. What is Web 2.0?</div>
         <div class="options">
@@ -196,9 +199,17 @@
         </div>
     </div>
 
-    <!-- Right side: image + button + score -->
+    <!-- Right side: image + instructions + check button -->
     <div class="quiz-right">
         <img src="../Images/Screenshot 2026-02-15 144855.png" alt="Yahoo Web 1.0" class="quiz-img">
+
+        <div class="instructions">
+            🔹 Read each question carefully.<br>
+            🔹 Choose one correct answer per question.<br>
+            🔹 Click "Check Answers" to see your score.<br>
+            🔹 You can learn this at the <strong>basic</strong> and <strong>advanced</strong> sections of the lessons.
+        </div>
+
         <div class="check-section">
             <button onclick="checkAnswers()">Check Answers</button>
             <p id="result"></p>
