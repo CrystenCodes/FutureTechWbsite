@@ -1,104 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Pages Quiz</title>
-    <style>
-        body {
-            background-color: blanchedalmond;
-            font-family: Arial, sans-serif;
-            padding: 20px;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pages Quiz</title>
+<style>
+/* ===== Body ===== */
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: linear-gradient(to bottom, blanchedalmond, #fff);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 20px;
+}
 
-        #lessons a {
-            line-break: normal;
-            text-decoration: none;
-            color: black;
-        }
+/* ===== Header ===== */
+header {
+    text-align: center;
+    background-color: rgb(190, 203, 245);
+    padding: 20px;
+    color: white;
+    font-family: 'Comic Sans MS', cursive;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
 
-        .quiz-box {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            border: 1px solid #d2b48c;
-            max-width: 600px;
-            margin-bottom: 20px;
-        }
+header h1 {
+    margin: 0;
+    font-size: 36px;
+}
 
-        .question {
-            font-weight: bold;
-            margin-top: 15px;
-        }
+/* ===== Quiz Container ===== */
+.quiz-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
 
-        button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #deb887;
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
-        }
+/* ===== Quiz Box ===== */
+.quiz-box {
+    background-color: white;
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid #d2b48c;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
 
-        button:hover {
-            background-color: #cd853f;
-        }
+.quiz-box .question {
+    font-weight: bold;
+    font-size: 18px;
+}
 
-        #result {
-            margin-top: 15px;
-            font-weight: bold;
-            color: #2e8b57;
-        }
-    </style>
+/* ===== Inputs ===== */
+.quiz-box input[type="radio"] {
+    margin-right: 10px;
+}
+
+/* ===== Button ===== */
+button {
+    align-self: flex-start;
+    padding: 10px 25px;
+    background-color: #deb887;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #cd853f;
+}
+
+/* ===== Result ===== */
+#result {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #2e8b57;
+}
+
+/* ===== Reference Image ===== */
+.reference {
+    max-width: 100%;
+    border: 1px solid #000;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 28px;
+    }
+
+    .quiz-box {
+        padding: 20px;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+</style>
 </head>
 <body>
 
-<h1> Quizzes </h1>
+<header>
+    <h1>Quizzes</h1>
+</header>
 
-<div class="quiz-box" id="Questions"> 
-    <p class="question">1. What is Web 2.0?</p>
-    <input type="radio" name="q1" value="a"> A Read-only web with static content<br>
-    <input type="radio" name="q1" value="b"> A Read-write web where users can interact and create content<br>
-    <input type="radio" name="q1" value="c"> A purely theoretical web that doesn't exist yet<br>
+<div class="quiz-container">
 
-    <p class="question">2. Which type of AI is currently still a "theoretical concept"?</p>
-    <input type="radio" name="q2" value="a"> Narrow AI (Siri/Alexa)<br>
-    <input type="radio" name="q2" value="b"> General AI<br>
-    <input type="radio" name="q2" value="c"> Chatbots like ChatGPT<br>
+    <div class="quiz-box" id="quiz">
+        <div class="question-block">
+            <p class="question">1. What is Web 2.0?</p>
+            <label><input type="radio" name="q1" value="a"> A Read-only web with static content</label><br>
+            <label><input type="radio" name="q1" value="b"> A Read-write web where users can interact and create content</label><br>
+            <label><input type="radio" name="q1" value="c"> A purely theoretical web that doesn't exist yet</label>
+        </div>
 
-    <p class="question">3. What is the main goal of Assistive Media?</p>
-    <input type="radio" name="q3" value="a"> To make websites look more colorful<br>
-    <input type="radio" name="q3" value="b"> To help people with disabilities access information<br>
-    <input type="radio" name="q3" value="c"> To speed up internet connections<br>
+        <div class="question-block">
+            <p class="question">2. Which type of AI is currently still a "theoretical concept"?</p>
+            <label><input type="radio" name="q2" value="a"> Narrow AI (Siri/Alexa)</label><br>
+            <label><input type="radio" name="q2" value="b"> General AI</label><br>
+            <label><input type="radio" name="q2" value="c"> Chatbots like ChatGPT</label>
+        </div>
 
-    <button onclick="checkAnswers()">Check Answers</button>
-    <p id="result"></p>
+        <div class="question-block">
+            <p class="question">3. What is the main goal of Assistive Media?</p>
+            <label><input type="radio" name="q3" value="a"> To make websites look more colorful</label><br>
+            <label><input type="radio" name="q3" value="b"> To help people with disabilities access information</label><br>
+            <label><input type="radio" name="q3" value="c"> To speed up internet connections</label>
+        </div>
+
+        <button onclick="checkAnswers()">Check Answers</button>
+        <p id="result"></p>
+    </div>
+
+    <h3>Reference Lesson Image:</h3>
+    <img src="../Images/Screenshot 2026-02-15 144855.png" alt="Yahoo Web 1.0" class="reference">
 </div>
 
-<hr>
-<h3>Reference Lesson Image:</h3>
-<img src="../Images/Screenshot 2026-02-15 144855.png" alt="Yahoo Web 1.0" style="width:400px; height:auto; border: 1px solid #000;">
-
 <script>
-    function checkAnswers() {
-        let score = 0;
-        let total = 3;
-        
-        // Check Q1
-        let q1 = document.querySelector('input[name="q1"]:checked');
-        if (q1 && q1.value === "b") score++;
+function checkAnswers() {
+    let score = 0;
+    const total = 3;
 
-        // Check Q2
-        let q2 = document.querySelector('input[name="q2"]:checked');
-        if (q2 && q2.value === "b") score++;
+    const q1 = document.querySelector('input[name="q1"]:checked');
+    if(q1 && q1.value === "b") score++;
 
-        // Check Q3
-        let q3 = document.querySelector('input[name="q3"]:checked');
-        if (q3 && q3.value === "b") score++;
+    const q2 = document.querySelector('input[name="q2"]:checked');
+    if(q2 && q2.value === "b") score++;
 
-        document.getElementById("result").innerHTML = "You scored " + score + " out of " + total + "!";
-    }
+    const q3 = document.querySelector('input[name="q3"]:checked');
+    if(q3 && q3.value === "b") score++;
+
+    document.getElementById("result").innerHTML = `You scored ${score} out of ${total}!`;
+}
 </script>
 
 </body>
-
 </html>
