@@ -55,7 +55,7 @@ header h1 {
     gap: 20px;
     padding: 20px;
     box-sizing: border-box;
-    align-items: stretch; /* fill vertically */
+    align-items: stretch;
 }
 
 /* ===== Left Box ===== */
@@ -74,6 +74,7 @@ header h1 {
     padding: 30px;
     height: 100%;
     font-size: 20px;
+    overflow-y: auto;
 }
 
 /* ===== Right Box ===== */
@@ -81,21 +82,31 @@ header h1 {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     height: 100%;
+    gap: 15px;
 }
 
 .reference {
     width: 100%;
     height: auto;
-    max-height: 70%;
+    max-height: 60vh; /* make image longgggg */
     border: 1px solid #000;
     border-radius: 10px;
     object-fit: cover;
 }
 
+.quiz-note {
+    background-color: #fef9e7;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #f0e68c;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
 .check-container {
-    margin-top: 10px;
+    margin-top: auto;
 }
 
 button {
@@ -157,18 +168,18 @@ footer {
     <div class="quiz-left">
         <div class="quiz-box">
             <p class="question">1. What is Web 2.0?</p>
-            <label><input type="radio" name="q1" value="a"> A Read-only web with static content</label>
-            <label><input type="radio" name="q1" value="b"> A Read-write web where users can interact and create content</label>
+            <label><input type="radio" name="q1" value="a"> A Read-only web with static content</label><br>
+            <label><input type="radio" name="q1" value="b"> A Read-write web where users can interact and create content</label><br>
             <label><input type="radio" name="q1" value="c"> A purely theoretical web that doesn't exist yet</label>
 
             <p class="question">2. Which type of AI is currently still a "theoretical concept"?</p>
-            <label><input type="radio" name="q2" value="a"> Narrow AI (Siri/Alexa)</label>
-            <label><input type="radio" name="q2" value="b"> General AI</label>
+            <label><input type="radio" name="q2" value="a"> Narrow AI (Siri/Alexa)</label><br>
+            <label><input type="radio" name="q2" value="b"> General AI</label><br>
             <label><input type="radio" name="q2" value="c"> Chatbots like ChatGPT</label>
 
             <p class="question">3. What is the main goal of Assistive Media?</p>
-            <label><input type="radio" name="q3" value="a"> To make websites look more colorful</label>
-            <label><input type="radio" name="q3" value="b"> To help people with disabilities access information</label>
+            <label><input type="radio" name="q3" value="a"> To make websites look more colorful</label><br>
+            <label><input type="radio" name="q3" value="b"> To help people with disabilities access information</label><br>
             <label><input type="radio" name="q3" value="c"> To speed up internet connections</label>
         </div>
     </div>
@@ -176,6 +187,13 @@ footer {
     <!-- Right Box -->
     <div class="quiz-right">
         <img src="../Images/Screenshot 2026-02-15 144855.png" alt="Yahoo Web 1.0" class="reference">
+        <div class="quiz-note">
+            <strong>How to Conduct the Quiz:</strong><br>
+            1. Read each question carefully.<br>
+            2. Select the correct answer by clicking the radio button.<br>
+            3. Once finished, click the "Check Answers" button below.<br>
+            <strong>Scoring:</strong> Each correct answer is worth 1 point. Your total score is shown after submission.
+        </div>
         <div class="check-container">
             <button onclick="checkAnswers()">Check Answers</button>
             <p id="result"></p>
