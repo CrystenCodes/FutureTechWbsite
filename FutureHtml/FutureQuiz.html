@@ -52,22 +52,30 @@ header h1 {
 .main-layout {
     flex: 1;
     display: flex;
+    gap: 20px;
     width: 100%;
     padding: 20px;
     box-sizing: border-box;
-    justify-content: center;
-    align-items: flex-start;
 }
 
-/* ===== Quiz Section ===== */
-.quiz-container {
+/* ===== Left Column (Questions) ===== */
+.quiz-left {
+    flex: 2;
     display: flex;
     flex-direction: column;
-    gap: 25px;
-    width: 100%;
-    max-width: 900px;
+    gap: 20px;
 }
 
+/* ===== Right Column (Image + Button) ===== */
+.quiz-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* ===== Quiz Box ===== */
 .quiz-box {
     background-color: white;
     padding: 25px;
@@ -88,17 +96,23 @@ header h1 {
     margin-right: 10px;
 }
 
+/* ===== Reference Image ===== */
+.reference {
+    width: 100%;
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+
 /* ===== Check Button ===== */
 button {
-    align-self: flex-start;
-    padding: 10px 25px;
+    padding: 15px 25px;
     background-color: #deb887;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
-    margin-top: 10px;
     transition: 0.3s;
+    width: 100%;
 }
 
 button:hover {
@@ -107,17 +121,9 @@ button:hover {
 
 /* ===== Result ===== */
 #result {
-    margin-top: 15px;
+    margin-top: 10px;
     font-weight: bold;
     color: #2e8b57;
-}
-
-/* ===== Reference Image ===== */
-.reference {
-    max-width: 100%;
-    border: 1px solid #000;
-    border-radius: 10px;
-    margin-top: 20px;
 }
 
 /* ===== Footer ===== */
@@ -131,17 +137,12 @@ footer {
 }
 
 /* ===== Responsive ===== */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 28px;
+@media (max-width: 900px) {
+    .main-layout {
+        flex-direction: column;
     }
-
-    .quiz-box {
-        padding: 20px;
-    }
-
-    button {
-        width: 100%;
+    .quiz-right {
+        flex-direction: column;
     }
 }
 </style>
@@ -154,7 +155,9 @@ footer {
 </header>
 
 <div class="main-layout">
-    <div class="quiz-container">
+
+    <!-- Left Column: Questions -->
+    <div class="quiz-left">
         <div class="quiz-box">
             <div class="question-block">
                 <p class="question">1. What is Web 2.0?</p>
@@ -176,14 +179,18 @@ footer {
                 <label><input type="radio" name="q3" value="b"> To help people with disabilities access information</label><br>
                 <label><input type="radio" name="q3" value="c"> To speed up internet connections</label>
             </div>
+        </div>
+    </div>
 
+    <!-- Right Column: Image Top + Button Bottom -->
+    <div class="quiz-right">
+        <img src="../Images/Screenshot 2026-02-15 144855.png" alt="Yahoo Web 1.0" class="reference">
+        <div>
             <button onclick="checkAnswers()">Check Answers</button>
             <p id="result"></p>
         </div>
-
-        <h3>Reference Lesson Image:</h3>
-        <img src="../Images/Screenshot 2026-02-15 144855.png" alt="Yahoo Web 1.0" class="reference">
     </div>
+
 </div>
 
 <footer>
