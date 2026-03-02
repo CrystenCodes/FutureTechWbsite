@@ -15,15 +15,8 @@
 html, body {
     height: 100%;
     margin: 0;
-}
-
-body {
-    background-color: #BFDEF5;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
     font-family: Arial, sans-serif;
-    overflow-x: hidden;
+    background-color: #BFDEF5;
 }
 
 /* ================= HEADER ================= */
@@ -41,21 +34,10 @@ body {
     text-align: center;
 }
 
-/* ================= INSTRUCTION BAR ================= */
-.instruction-bar {
-    background-color: #ffeb3b;
-    color: #000;
-    padding: 15px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 18px;
-    border-bottom: 2px solid #fdd835;
-}
-
 /* ================= CARD CONTAINER ================= */
 .card-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
     padding: 20px;
     width: 100%;
@@ -63,15 +45,15 @@ body {
 
 /* ================= CARD ================= */
 .card {
-    width: 100%;
-    height: 300px;
-    border: outset;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    overflow: hidden;
     position: relative;
+    overflow: hidden;
     color: white;
+    border: outset;
+    height: 300px;
+    border-radius: 8px;
 }
 
 .card img {
@@ -97,7 +79,6 @@ body {
     text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
 }
 
-/* ================= BUTTONS ================= */
 .btn-group {
     display: flex;
     flex-wrap: wrap;
@@ -121,6 +102,32 @@ body {
 .b1:hover {
     background-color: #fff176;
     transform: scale(1.05);
+}
+.about-card {
+    grid-column: span 2; /* <-- makes it span 2 columns */
+    background-color: #ffeb3b;
+    color: #000;
+    padding: 12px;
+    text-align: left;
+    height: 300px; /* same as other cards */
+    border-radius: 8px;
+    border: outset;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow-y: auto;
+}
+
+.about-card h3 {
+    margin-top: 0;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.about-card p {
+    font-size: 14px;
+    line-height: 1.3;
 }
 
 /* ================= FOOTER ================= */
@@ -157,6 +164,11 @@ a {
         padding: 15px;
     }
 
+    .card-container {
+        gap: 15px;
+        padding: 10px;
+    }
+
     .card {
         height: 220px;
     }
@@ -169,6 +181,12 @@ a {
         width: 90px;
         height: 28px;
         font-size: 12px;
+    }
+
+    .about-card {
+        font-size: 14px;
+        padding: 8px;
+        height: 220px;
     }
 
     .lower {
@@ -185,10 +203,6 @@ a {
 <body>
 
 <header class="upper">FutureTech</header>
-
-<div class="instruction-bar">
-  Click on one of the buttons on the page to go directly to the site
-</div>
 
 <div class="card-container">
 
@@ -236,6 +250,13 @@ a {
         </div>
     </div>
 
+    <!-- ================= ABOUT/INSTRUCTION CARD ================= -->
+    <div class="about-card">
+        <h3>Instructions & About This Website</h3>
+        <p><strong>Instructions:</strong> Click on one of the buttons on each card to go directly to the lessons, quizzes, or reference material.</p>
+        <p><strong>About this website:</strong> Made by Grade 12-TVL-ICT Group 2. This website was made to help Grade 10 and 11 students transition to a new curriculum and new lessons as a whole. It shows what Grade 11 and 12 ICT really offers in terms of knowledge and understanding. You can find lessons from Quarter 1–4 on Grade 11 TVL-ICT, as well as advanced lessons and quizzes that will improve your basic skills.</p>
+    </div>
+
 </div>
 
 <footer class="lower">
@@ -249,4 +270,4 @@ a {
 </div>
 
 </body>
-</html>
+    </html>
