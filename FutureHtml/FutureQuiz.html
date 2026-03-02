@@ -46,55 +46,77 @@
         box-sizing: border-box;
     }
 
-    .quiz-left, .quiz-right {
+    /* ===== Left Side ===== */
+    .quiz-left {
+        flex: 2;
         background-color: white;
         border-radius: 15px;
         padding: 20px;
         box-shadow: 0 6px 12px rgba(0,0,0,0.15);
         display: flex;
         flex-direction: column;
+        overflow-y: auto;
     }
 
-    .quiz-left {
-        flex: 2;
-        font-size: 1.2em;
-        overflow-y: auto; /* scroll if content too long */
+    .instructions {
+        background-color: #f4f4f4;
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        font-size: 1em;
+        color: #333;
     }
 
-    .quiz-left .question {
+    .question {
         font-weight: bold;
         margin-top: 20px;
+        font-size: 1.1em;
     }
 
-    .quiz-left input[type="radio"] {
-        margin: 8px 0;
-    }
-
-    .quiz-right {
-        flex: 1;
-        justify-content: space-between;
+    .options {
+        margin: 10px 0 0 0;
         display: flex;
         flex-direction: column;
+        gap: 10px;
+        font-size: 1em;
+    }
+
+    .options label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+    }
+
+    input[type="radio"] {
+        transform: scale(1.2);
+        cursor: pointer;
+    }
+
+    /* ===== Right Side ===== */
+    .quiz-right {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 15px;
     }
 
     .quiz-img {
         width: 100%;
-        max-height: 400px;
+        height: auto;
+        max-height: 350px;
         object-fit: cover;
         border-radius: 10px;
-        margin-bottom: 15px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
-    .instructions {
-        font-size: 0.95em;
-        background-color: #f4f4f4;
-        padding: 10px;
-        border-radius: 10px;
-        margin-bottom: 10px;
-        color: #333;
+    .check-section {
+        margin-top: auto;
     }
 
     .check-section button {
+        width: 100%;
         padding: 12px;
         font-size: 1em;
         background-color: #deb887;
@@ -124,7 +146,7 @@
             width: 100%;
         }
         .quiz-img {
-            max-height: 300px;
+            max-height: 250px;
         }
     }
 </style>
@@ -138,29 +160,37 @@
 
 <div class="quiz-layout">
 
+    <!-- Left side: instructions + questions -->
     <div class="quiz-left">
-        <p class="instructions">
+        <div class="instructions">
             🔹 Read each question carefully.<br>
-            🔹 Choose one correct answer for each question.<br>
-            🔹 Click "Check Answers" below to see your score. Each correct answer gives 1 point.
-        </p>
+            🔹 Choose one correct answer per question.<br>
+            🔹 Click "Check Answers" to see your score.
+        </div>
 
-        <p class="question">1. What is Web 2.0?</p>
-        <input type="radio" name="q1" value="a"> A Read-only web with static content<br>
-        <input type="radio" name="q1" value="b"> A Read-write web where users can interact and create content<br>
-        <input type="radio" name="q1" value="c"> A purely theoretical web that doesn't exist yet<br>
+        <div class="question">1. What is Web 2.0?</div>
+        <div class="options">
+            <label><input type="radio" name="q1" value="a"> A Read-only web with static content</label>
+            <label><input type="radio" name="q1" value="b"> A Read-write web where users can interact and create content</label>
+            <label><input type="radio" name="q1" value="c"> A purely theoretical web that doesn't exist yet</label>
+        </div>
 
-        <p class="question">2. Which type of AI is currently still a "theoretical concept"?</p>
-        <input type="radio" name="q2" value="a"> Narrow AI (Siri/Alexa)<br>
-        <input type="radio" name="q2" value="b"> General AI<br>
-        <input type="radio" name="q2" value="c"> Chatbots like ChatGPT<br>
+        <div class="question">2. Which type of AI is currently still a "theoretical concept"?</div>
+        <div class="options">
+            <label><input type="radio" name="q2" value="a"> Narrow AI (Siri/Alexa)</label>
+            <label><input type="radio" name="q2" value="b"> General AI</label>
+            <label><input type="radio" name="q2" value="c"> Chatbots like ChatGPT</label>
+        </div>
 
-        <p class="question">3. What is the main goal of Assistive Media?</p>
-        <input type="radio" name="q3" value="a"> To make websites look more colorful<br>
-        <input type="radio" name="q3" value="b"> To help people with disabilities access information<br>
-        <input type="radio" name="q3" value="c"> To speed up internet connections<br>
+        <div class="question">3. What is the main goal of Assistive Media?</div>
+        <div class="options">
+            <label><input type="radio" name="q3" value="a"> To make websites look more colorful</label>
+            <label><input type="radio" name="q3" value="b"> To help people with disabilities access information</label>
+            <label><input type="radio" name="q3" value="c"> To speed up internet connections</label>
+        </div>
     </div>
 
+    <!-- Right side: image + button + score -->
     <div class="quiz-right">
         <img src="../Images/Screenshot 2026-02-15 144855.png" alt="Yahoo Web 1.0" class="quiz-img">
         <div class="check-section">
