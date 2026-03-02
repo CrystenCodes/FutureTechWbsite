@@ -53,6 +53,10 @@ html, body {
 }
 
 /* ======= CARDS ======= */
+.card-link {
+    text-decoration: none;
+}
+
 .card {
     display: flex;
     flex-direction: column;
@@ -83,43 +87,13 @@ html, body {
     border-radius: 15px;
 }
 
-.card h2,
-.btn-group {
+.card h2 {
     position: relative;
     z-index: 1;
-    margin: 0;
-}
-
-.card h2 {
-    margin-bottom: 10px;
+    margin: 0 0 10px 0;
     font-weight: bold;
     font-size: 1.2rem;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-}
-
-.btn-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    margin-bottom: 12px;
-}
-
-.b1 {
-    height: 32px;
-    width: 110px;
-    color: blue;
-    background-color: yellow;
-    border: solid 3px blue;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.b1:hover {
-    background-color: #fff176;
-    transform: scale(1.05);
 }
 
 /* ======= ABOUT/INSTRUCTION CARD ======= */
@@ -173,6 +147,7 @@ html, body {
 
 a {
     text-decoration: none;
+    color: inherit;
 }
 
 /* ======= MOBILE RESPONSIVE ======= */
@@ -189,12 +164,6 @@ a {
 
     .card h2 {
         font-size: 16px;
-    }
-
-    .b1 {
-        width: 90px;
-        height: 28px;
-        font-size: 12px;
     }
 
     .header-section .water {
@@ -225,39 +194,30 @@ a {
 
 <div class="card-container">
 
-    <div class="card">
-        <img src="../Images/blue.jpg" alt="Software">
-        <h2>Software</h2>
-        <div class="btn-group">
-            <a href="pogi.html"><button class="b1">Basic</button></a>
-            <a href="FutureQuiz.html"><button class="b1">Quiz</button></a>
-            <a href="FutureRef.html"><button class="b1">Reference</button></a>
+    <a href="pogi.html" class="card-link">
+        <div class="card">
+            <img src="../Images/blue.jpg" alt="Software">
+            <h2>Software</h2>
         </div>
-    </div>
+    </a>
 
-    <div class="card">
-        <img src="../Images/red.jpg" alt="Hardware">
-        <h2>Hardware</h2>
-        <div class="btn-group">
-            <a href="pogi1.html"><button class="b1">Basic</button></a>
-            <a href="FutureQuiz2.html"><button class="b1">Quiz</button></a>
-            <a href="FutureRef2.html"><button class="b1">Reference</button></a>
+    <a href="pogi1.html" class="card-link">
+        <div class="card">
+            <img src="../Images/red.jpg" alt="Hardware">
+            <h2>Hardware</h2>
         </div>
-    </div>
+    </a>
 
-    <div class="card">
-        <img src="../Images/green.jpg" alt="Rebooting">
-        <h2>Rebooting</h2>
-        <div class="btn-group">
-            <a href="pogi2.html"><button class="b1">Basic</button></a>
-            <a href="FutureQuiz3.html"><button class="b1">Quiz</button></a>
-            <a href="FutureRef3.html"><button class="b1">Reference</button></a>
+    <a href="pogi2.html" class="card-link">
+        <div class="card">
+            <img src="../Images/green.jpg" alt="Rebooting">
+            <h2>Rebooting</h2>
         </div>
-    </div>
+    </a>
 
     <div class="about-card">
         <h3>Instructions & About This Website</h3>
-        <p><strong>Instructions:</strong> Click one of the buttons on each card to go to lessons, quizzes, or references. To go back to the previous page press the back button of your phone.</p>
+        <p><strong>Instructions:</strong> Click the block/card to proceed to the lessons. To go back to the previous page press the back button of your phone.</p>
         <p><strong>About:</strong> Made by Grade 12 TVL-ICT Group 2. This site helps students learn software, hardware, and rebooting topics with clear instructions and references.</p>
     </div>
 
@@ -273,4 +233,3 @@ a {
 
 </body>
 </html>
-
