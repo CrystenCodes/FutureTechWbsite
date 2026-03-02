@@ -158,6 +158,12 @@ a {
 
 /* ================= MOBILE RESPONSIVE ================= */
 @media (max-width: 768px) {
+    .about-card {
+        grid-column: span 1; /* stack normally on mobile */
+        height: 220px; /* match mobile card height */
+        font-size: 14px;
+    }
+}
 
     .upper {
         font-size: 32px;
@@ -182,12 +188,8 @@ a {
         height: 28px;
         font-size: 12px;
     }
-
-    .about-card {
-        font-size: 14px;
-        padding: 8px;
-        height: 220px;
-    }
+    
+    
 
     .lower {
         font-size: 16px;
@@ -270,4 +272,4 @@ a {
 </div>
 
 </body>
-    </html>
+</html>
