@@ -56,27 +56,15 @@ header h1 {
     width: 100%;
     padding: 20px;
     box-sizing: border-box;
+    align-items: stretch; /* fill vertically */
 }
 
 /* ===== Left Column (Questions) ===== */
 .quiz-left {
     flex: 2;
     display: flex;
-    flex-direction: column;
-    gap: 25px;
-    height: 100%;
 }
 
-/* ===== Right Column (Image + Button) ===== */
-.quiz-right {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-/* ===== Quiz Box ===== */
 .quiz-box {
     background-color: white;
     padding: 30px;
@@ -85,18 +73,23 @@ header h1 {
     box-shadow: 0 6px 12px rgba(0,0,0,0.15);
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    justify-content: space-between;
     height: 100%;
+    font-size: 20px; /* bigger font for filling space */
+}
+
+.question-block {
+    margin-bottom: 25px;
 }
 
 .quiz-box .question {
     font-weight: bold;
-    font-size: 20px;  /* Slightly bigger */
+    font-size: 22px;
     margin-bottom: 10px;
 }
 
 .quiz-box label {
-    font-size: 18px;  /* Slightly bigger */
+    font-size: 18px;
     margin-bottom: 8px;
     display: block;
 }
@@ -105,11 +98,25 @@ header h1 {
     margin-right: 10px;
 }
 
-/* ===== Reference Image ===== */
+/* ===== Right Column (Image + Button) ===== */
+.quiz-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .reference {
     width: 100%;
+    height: auto;
+    max-height: 500px; /* make it bigger */
     border: 1px solid #000;
     border-radius: 10px;
+    object-fit: cover;
+}
+
+.check-container {
+    margin-top: 20px;
 }
 
 /* ===== Check Button ===== */
@@ -153,6 +160,10 @@ footer {
     .quiz-right {
         flex-direction: column;
     }
+    .reference {
+        max-height: none;
+        width: 100%;
+    }
 }
 </style>
 </head>
@@ -194,7 +205,7 @@ footer {
     <!-- Right Column: Image Top + Button Bottom -->
     <div class="quiz-right">
         <img src="../Images/Screenshot 2026-02-15 144855.png" alt="Yahoo Web 1.0" class="reference">
-        <div>
+        <div class="check-container">
             <button onclick="checkAnswers()">Check Answers</button>
             <p id="result"></p>
         </div>
