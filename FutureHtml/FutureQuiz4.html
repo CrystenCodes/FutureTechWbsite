@@ -1,119 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Coding Structures & Logic Quiz</title>
-    <style>
-        body {
-            background-color: blanchedalmond;
-            font-family: Arial, sans-serif;
-            padding: 20px;
-            line-height: 1.6;
-            color: #2c3e50;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coding Structures & Logic Quiz</title>
+<style>
+    body {
+        background-color: blanchedalmond;
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        color: #2c3e50;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        margin: 0;
+    }
 
-        .quiz-box {
-            background-color: white;
-            padding: 25px;
-            border-radius: 12px;
-            border: 2px solid #d2b48c;
-            max-width: 750px;
-            margin: 0 auto 30px auto;
-            box-shadow: 3px 3px 10px rgba(0,0,0,0.05);
-        }
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgb(190, 203, 245);
+        color: white;
+        padding: 15px 30px;
+        font-family: 'Comic Sans MS', cursive;
+    }
 
-        h1 { text-align: center; color: #5d4037; }
-        h2 { border-bottom: 2px solid #deb887; padding-bottom: 5px; color: #8b4513; }
+    header h1 {
+        font-size: 32px;
+        margin: 0;
+    }
 
-        .question {
-            font-weight: bold;
-            margin-top: 20px;
-            display: block;
-        }
+    .home-btn {
+        text-decoration: none;
+        background-color: white;
+        color: rgb(80, 100, 200);
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: bold;
+    }
 
-        .option {
-            margin: 8px 0;
-            display: block;
-        }
+    .quiz-layout {
+        display: flex;
+        flex: 1;
+        padding: 20px;
+        gap: 20px;
+        box-sizing: border-box;
+        flex-wrap: wrap;
+    }
 
-        button {
-            margin-top: 25px;
-            padding: 12px 25px;
-            background-color: #deb887;
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
-            border-radius: 8px;
-            transition: 0.3s;
-        }
+    .quiz-left, .quiz-right {
+        flex: 1;
+        min-width: 300px;
+    }
 
-        button:hover {
-            background-color: #cd853f;
-            color: white;
-        }
+    .quiz-box {
+        background-color: white;
+        padding: 25px;
+        border-radius: 12px;
+        border: 2px solid #d2b48c;
+        box-shadow: 3px 3px 10px rgba(0,0,0,0.05);
+        margin-bottom: 20px;
+    }
 
-        .result-text {
-            margin-top: 15px;
-            font-weight: bold;
-            font-size: 1.2em;
-            color: #2e8b57;
+    h2 { border-bottom: 2px solid #deb887; padding-bottom: 5px; color: #8b4513; }
+
+    .question {
+        font-weight: bold;
+        margin-top: 20px;
+    }
+
+    .option {
+        margin: 8px 0;
+        display: block;
+    }
+
+    button {
+        margin-top: 25px;
+        padding: 12px 25px;
+        background-color: #deb887;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+        border-radius: 8px;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background-color: #cd853f;
+        color: white;
+    }
+
+    .result-text {
+        margin-top: 15px;
+        font-weight: bold;
+        font-size: 1.2em;
+        color: #2e8b57;
+    }
+
+    .instructions, .links-box {
+        background-color: #f4f4f4;
+        padding: 15px;
+        border-radius: 10px;
+        font-size: 1em;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .links-box a {
+        background-color: #598aad;
+        color: white;
+        text-decoration: none;
+        padding: 12px;
+        text-align: center;
+        border-radius: 10px;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .links-box a:hover {
+        background-color: #3d6485;
+    }
+
+    @media (max-width: 800px) {
+        .quiz-layout {
+            flex-direction: column;
         }
-    </style>
+    }
+</style>
 </head>
 <body>
 
-<h1> Programming & Logic Mastery </h1>
+<header>
+    <h1>Coding & Logic Quiz</h1>
+    <a href="BookPager4.html" class="home-btn">Basic Lessons</a>
+</header>
 
-<div class="quiz-box" id="CodingQuiz">
-    <h2>Coding Fundamentals</h2>
-    
-    <p class="question">1. Which coding structure is used for repeating actions (loops)?</p>
-    <label class="option"><input type="radio" name="c1" value="a"> Sequence</label>
-    <label class="option"><input type="radio" name="c1" value="b"> Selection (if-else)</label>
-    <label class="option"><input type="radio" name="c1" value="c"> Iteration (for/while)</label>
+<div class="quiz-layout">
 
-    <p class="question">2. If a program has a missing parenthesis or incorrect indentation, what type of error is it?</p>
-    <label class="option"><input type="radio" name="c2" value="a"> Logic Error</label>
-    <label class="option"><input type="radio" name="c2" value="b"> Syntax Error</label>
+    <div class="quiz-left">
+        <div class="quiz-box" id="CodingQuiz">
+            <h2>Coding Fundamentals</h2>
+            
+            <p class="question">1. Which coding structure is used for repeating actions (loops)?</p>
+            <label class="option"><input type="radio" name="c1" value="a"> Sequence</label>
+            <label class="option"><input type="radio" name="c1" value="b"> Selection (if-else)</label>
+            <label class="option"><input type="radio" name="c1" value="c"> Iteration (for/while)</label>
 
-    <p class="question">3. Boolean operators like AND, OR, and NOT are essential for what part of coding?</p>
-    <label class="option"><input type="radio" name="c3" value="a"> Coding Logic</label>
-    <label class="option"><input type="radio" name="c3" value="b"> Visual Design</label>
+            <p class="question">2. If a program has a missing parenthesis or incorrect indentation, what type of error is it?</p>
+            <label class="option"><input type="radio" name="c2" value="a"> Logic Error</label>
+            <label class="option"><input type="radio" name="c2" value="b"> Syntax Error</label>
 
-    <p class="question">4. How does mathematics connect to coding according to your notes?</p>
-    <label class="option"><input type="radio" name="c4" value="a"> It doesn't; coding is only about typing text.</label>
-    <label class="option"><input type="radio" name="c4" value="b"> It uses arithmetic, algebra, and functions to solve numerical problems and analyze data.</label>
+            <p class="question">3. Boolean operators like AND, OR, and NOT are essential for what part of coding?</p>
+            <label class="option"><input type="radio" name="c3" value="a"> Coding Logic</label>
+            <label class="option"><input type="radio" name="c3" value="b"> Visual Design</label>
 
-    <p class="question">5. Which structure executes statements one after another in order?</p>
-    <label class="option"><input type="radio" name="c5" value="a"> Selection</label>
-    <label class="option"><input type="radio" name="c5" value="b"> Sequence</label>
+            <p class="question">4. How does mathematics connect to coding according to your notes?</p>
+            <label class="option"><input type="radio" name="c4" value="a"> It doesn't; coding is only about typing text.</label>
+            <label class="option"><input type="radio" name="c4" value="b"> It uses arithmetic, algebra, and functions to solve numerical problems and analyze data.</label>
 
-    <button onclick="checkCodingQuiz()">Submit Answers</button>
-    <p id="cResult" class="result-text"></p>
+            <p class="question">5. Which structure executes statements one after another in order?</p>
+            <label class="option"><input type="radio" name="c5" value="a"> Selection</label>
+            <label class="option"><input type="radio" name="c5" value="b"> Sequence</label>
+
+            <button onclick="checkCodingQuiz()">Submit Answers</button>
+            <p id="cResult" class="result-text"></p>
+        </div>
+    </div>
+
+    <div class="quiz-right">
+        <div class="instructions">
+            🔹 Read each question carefully.<br>
+            🔹 Choose only one correct answer per question.<br>
+            🔹 Click the "Submit Answers" button to see your score.<br>
+            🔹 Refer to <strong>BookPager4.html</strong> for basic lessons and <strong>BookPagerAdv4.html</strong> for advanced lessons.<br>
+            🔹 Review your answers before submitting.
+        </div>
+
+        <div class="links-box">
+            <a href="BookPager4.html" target="_blank">Go to Basic Lessons &gt;</a>
+            <a href="BookPagerAdv4.html" target="_blank">Go to Advanced Lessons &gt;</a>
+        </div>
+    </div>
+
 </div>
 
 <script>
-    function checkCodingQuiz() {
-        let score = 0;
-        let total = 5;
+function checkCodingQuiz() {
+    let score = 0;
+    let total = 5;
 
-        // Correct Answers: 1:c, 2:b, 3:a, 4:b, 5:b
-        if (document.querySelector('input[name="c1"]:checked')?.value === "c") score++;
-        if (document.querySelector('input[name="c2"]:checked')?.value === "b") score++;
-        if (document.querySelector('input[name="c3"]:checked')?.value === "a") score++;
-        if (document.querySelector('input[name="c4"]:checked')?.value === "b") score++;
-        if (document.querySelector('input[name="c5"]:checked')?.value === "b") score++;
+    // Correct Answers: 1:c, 2:b, 3:a, 4:b, 5:b
+    if (document.querySelector('input[name="c1"]:checked')?.value === "c") score++;
+    if (document.querySelector('input[name="c2"]:checked')?.value === "b") score++;
+    if (document.querySelector('input[name="c3"]:checked')?.value === "a") score++;
+    if (document.querySelector('input[name="c4"]:checked')?.value === "b") score++;
+    if (document.querySelector('input[name="c5"]:checked')?.value === "b") score++;
 
-        const resultDisplay = document.getElementById("cResult");
-        resultDisplay.innerHTML = "Final Score: " + score + " / " + total;
-        
-        if (score === total) {
-            resultDisplay.style.color = "green";
-            resultDisplay.innerHTML += " - Logic clear! You're ready to code.";
-        } else {
-            resultDisplay.style.color = "#d35400";
-        }
+    const resultDisplay = document.getElementById("cResult");
+    resultDisplay.innerHTML = "Final Score: " + score + " / " + total;
+    
+    if (score === total) {
+        resultDisplay.style.color = "green";
+        resultDisplay.innerHTML += " - Logic clear! You're ready to code.";
+    } else {
+        resultDisplay.style.color = "#d35400";
     }
+}
 </script>
 
 </body>
