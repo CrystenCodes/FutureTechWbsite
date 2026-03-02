@@ -3,13 +3,15 @@
 <head>
 <title>Future Tech</title>
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 *,
 *::before,
 *::after {
     box-sizing: border-box;
 }
-    
+
 html, body {
     height: 100%;
     margin: 0;
@@ -24,71 +26,7 @@ body {
     overflow-x: hidden;
 }
 
-.card-container {
-    display: grid;
-    grid-template-columns: repeat(2, 400px);
-    gap: 80px;
-    justify-content: center;
-    padding: 40px 20px;
-}
-
-.card {
-    width: 400px;
-    height: 300px;
-    border: outset;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end; /* buttons at bottom */
-    overflow: hidden; /* clip overflowing image */
-    position: relative;
-    color: white; /* text on top of image */
-}
-
-.card img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* ⭐ makes image fully cover card */
-    z-index: 0;
-}
-
-.card h2, .btn-group {
-    position: relative;
-    z-index: 1; /* put text/buttons on top of image */
-    text-align: center;
-}
-
-.card h2 {
-    margin: 0 0 10px 0;
-    font-weight: bold;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-}
-
-.btn-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    margin-bottom: 10px;
-}
-
-.b1 {
-    height: 30px;
-    width: 110px;
-    color: blue;
-    background-color: yellow;
-    border: solid 3px blue;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.b1:hover {
-    background-color: #fff176;
-}
-
+/* ================= HEADER ================= */
 .upper {
     color: #CFD9F5;
     display: flex;
@@ -100,8 +38,80 @@ body {
     border: inset;
     font-weight: bold;
     padding: 20px;
+    text-align: center;
 }
 
+/* ================= CARD CONTAINER ================= */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 40px 20px;
+}
+
+/* ================= CARD ================= */
+.card {
+    width: 100%;
+    height: 260px;
+    border: outset;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+    position: relative;
+    color: white;
+}
+
+.card img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.card h2,
+.btn-group {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.card h2 {
+    margin: 0 0 10px 0;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+}
+
+/* ================= BUTTONS ================= */
+.btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+
+.b1 {
+    height: 32px;
+    width: 110px;
+    color: blue;
+    background-color: yellow;
+    border: solid 3px blue;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.b1:hover {
+    background-color: #fff176;
+    transform: scale(1.05);
+}
+
+/* ================= FOOTER ================= */
 .lower {
     display: flex;
     width: 100%;
@@ -112,6 +122,7 @@ body {
     padding: 15px;
     justify-content: center;
     flex-wrap: wrap;
+    text-align: center;
 }
 
 .footer-bottom {
@@ -119,13 +130,42 @@ body {
     background-color: white;
     padding: 8px;
     font-size: 14px;
-    flex-wrap: wrap;
     width: 100%;
-    box-sizing: border-box;
 }
 
 a {
     text-decoration: none;
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 768px) {
+
+    .upper {
+        font-size: 32px;
+        padding: 15px;
+    }
+
+    .card {
+        height: 220px;
+    }
+
+    .card h2 {
+        font-size: 18px;
+    }
+
+    .b1 {
+        width: 90px;
+        height: 28px;
+        font-size: 12px;
+    }
+
+    .lower {
+        font-size: 16px;
+    }
+
+    .footer-bottom {
+        font-size: 12px;
+    }
 }
 </style>
 </head>
