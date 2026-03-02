@@ -10,7 +10,6 @@
     box-sizing: border-box;
 }
     
-
 html, body {
     height: 100%;
     margin: 0;
@@ -25,11 +24,6 @@ body {
     overflow-x: hidden;
 }
 
-
-
-
-
-
 .card-container {
     display: grid;
     grid-template-columns: repeat(2, 400px);
@@ -38,33 +32,46 @@ body {
     padding: 40px 20px;
 }
 
-
 .card {
     width: 400px;
     height: 300px;
-    background-color: white;
     border: outset;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding-top: 20px;
+    justify-content: flex-end; /* buttons at bottom */
+    overflow: hidden; /* clip overflowing image */
+    position: relative;
+    color: white; /* text on top of image */
+}
+
+.card img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ⭐ makes image fully cover card */
+    z-index: 0;
+}
+
+.card h2, .btn-group {
+    position: relative;
+    z-index: 1; /* put text/buttons on top of image */
+    text-align: center;
 }
 
 .card h2 {
-    margin: 0 0 20px 0;
-    color: #333;
+    margin: 0 0 10px 0;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
-
-
 
 .btn-group {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
-    margin-top: auto;
-    padding-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .b1 {
@@ -81,7 +88,6 @@ body {
 .b1:hover {
     background-color: #fff176;
 }
-
 
 .upper {
     color: #CFD9F5;
@@ -106,8 +112,6 @@ body {
     padding: 15px;
     justify-content: center;
     flex-wrap: wrap;
-   
-   
 }
 
 .footer-bottom {
@@ -123,7 +127,6 @@ body {
 a {
     text-decoration: none;
 }
-
 </style>
 </head>
 
@@ -131,12 +134,10 @@ a {
 
 <header class="upper">FutureTech</header>
 
-
 <div class="card-container">
 
-    
     <div class="card">
-        <img src="../Images/D1.jpg" style="width: max-content; height: max-content;">
+        <img src="../Images/D1.jpg" alt="Productivity">
         <h2>Productivity</h2>
         <div class="btn-group">
             <a href="FutureTechBookPager.html"><button class="b1">Basic</button></a>
@@ -146,9 +147,8 @@ a {
         </div>
     </div>
 
-    
     <div class="card">
-        <img src="../Images/D2.jpg"style="width: max-content; height: max-content">
+        <img src="../Images/D2.jpg" alt="Designing">
         <h2>Designing</h2>
         <div class="btn-group">
             <a href="BookPager2.html"><button class="b1">Basic</button></a>
@@ -158,9 +158,8 @@ a {
         </div>
     </div>
 
-    
     <div class="card">
-        <img src="../Images/D3.jpg" style="width: max-content; height: max-content">
+        <img src="../Images/D3.jpg" alt="Technology">
         <h2>Technology</h2>
         <div class="btn-group">
             <a href="BookPager3.html"><button class="b1">Basic</button></a>
@@ -170,9 +169,8 @@ a {
         </div>
     </div>
 
-    
     <div class="card">
-        <img src="../Images/D4.jpg" style="width: max-content; height: max-content;">
+        <img src="../Images/D4.jpg" alt="Web Development">
         <h2>Web Development</h2>
         <div class="btn-group">
             <a href="BookPager4.html"><button class="b1">Basic</button></a>
@@ -183,8 +181,6 @@ a {
     </div>
 
 </div>
-
-
 
 <footer class="lower">
     Contact us in our Email address
