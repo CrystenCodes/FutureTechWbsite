@@ -3,7 +3,14 @@
 <head>
 <meta charset="utf-8" />
 <title>Imaging and Design</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
+* {
+  box-sizing: border-box;
+}
+
 html, body {
   height: 100%;
   margin: 0;
@@ -15,6 +22,7 @@ body {
   display: flex;
   justify-content: center;
   padding: 40px;
+  padding-bottom: 110px; /* ⭐ prevents footer overlap */
 }
 
 /* Content container */
@@ -47,7 +55,9 @@ p {
 
 /* Video below text */
 .video-container {
-  margin-top: 20px; /* space between text and video */
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
 }
 
 .video-container iframe {
@@ -58,42 +68,42 @@ p {
   box-shadow: 0 8px 24px rgba(0,0,0,0.18);
 }
 
-/* Footer Highlighter/Eraser */
+/* ===== Footer Toolbar (FIXED) ===== */
 .footer {
   position: fixed;
   bottom: 0;
   left: 0;
-  right: 0;
-  background-color: rgba(206, 187, 187, 0.9);
-  padding: 20px;
+  width: 100%;
+  background-color: rgba(206, 187, 187, 0.95);
+  padding: 14px 10px;
   text-align: center;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
-  z-index: 100;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.25);
+  z-index: 999;
 }
 
 .tools-container {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 18px;
   flex-wrap: wrap;
 }
 
+/* Smaller buttons */
 .tool-btn {
-  padding: 12px 25px;
+  padding: 8px 16px;
   background-color: #333;
   color: #fff;
   border: 2px solid #555;
-  border-radius: 8px;
-  font-size: 16px;
+  border-radius: 6px;
+  font-size: 14px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
   font-weight: bold;
 }
 
 .tool-btn:hover {
   background-color: #555;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
 }
 
 .tool-btn.active {
@@ -102,9 +112,31 @@ p {
   border-color: #ffff00;
 }
 
+/* Tighter highlight */
 .highlighted {
-  background-color: yellow;
+  background-color: #fff176;
   color: black;
+  padding: 0 2px;
+  border-radius: 2px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 600px) {
+  body {
+    padding: 20px;
+    padding-bottom: 120px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .tool-btn {
+    font-size: 13px;
+    padding: 7px 14px;
+  }
 }
 </style>
 </head>
@@ -141,8 +173,8 @@ p {
 
 <footer class="footer">
   <div class="tools-container">
-    <button class="tool-btn" id="highlighterBtn" onclick="selectTool('highlighter', this)" title="Highlighter">Highlighter</button>
-    <button class="tool-btn" id="eraserBtn" onclick="selectTool('eraser', this)" title="Eraser">Eraser</button>    
+    <button class="tool-btn" onclick="selectTool('highlighter', this)">Highlighter</button>
+    <button class="tool-btn" onclick="selectTool('eraser', this)">Eraser</button>
   </div>
 </footer>
 
@@ -167,25 +199,29 @@ document.addEventListener('mouseup', () => {
 
     const range = selection.getRangeAt(0);
     const container = range.commonAncestorContainer;
-    const interactiveContent = (container.nodeType === 1 ? container : container.parentElement)
-                                .closest('.interactive-content');
+    const interactiveContent =
+      (container.nodeType === 1 ? container : container.parentElement)
+      .closest('.interactive-content');
+
     if (!interactiveContent) return;
 
     if (currentTool === TOOLS.ERASER) {
       removeFormatting(range);
     } else {
-      applyFormatting(range, currentTool);
+      applyFormatting(range);
     }
+
     selection.removeAllRanges();
   }, 20);
 });
 
-function applyFormatting(range, tool) {
+function applyFormatting(range) {
   const span = document.createElement('span');
   span.className = 'highlighted';
+
   try {
     range.surroundContents(span);
-  } catch (e) {
+  } catch {
     const contents = range.extractContents();
     span.appendChild(contents);
     range.insertNode(span);
@@ -194,15 +230,20 @@ function applyFormatting(range, tool) {
 
 function removeFormatting(range) {
   const container = range.commonAncestorContainer;
-  const parentSpan = (container.nodeType === 1 ? container : container.parentElement)
-                      .closest('.highlighted');
+  const parentSpan =
+    (container.nodeType === 1 ? container : container.parentElement)
+    .closest('.highlighted');
+
   if (parentSpan) {
     const parent = parentSpan.parentNode;
-    while (parentSpan.firstChild) parent.insertBefore(parentSpan.firstChild, parentSpan);
+    while (parentSpan.firstChild) {
+      parent.insertBefore(parentSpan.firstChild, parentSpan);
+    }
     parent.removeChild(parentSpan);
     parent.normalize();
   }
 }
 </script>
+
 </body>
 </html>
