@@ -1,77 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Multimedia & Web Generations Quiz</title>
-    <style>
-        body {
-            background-color: blanchedalmond;
-            font-family: Arial, sans-serif;
-            padding: 20px;
-            line-height: 1.6;
-            color: #2c3e50;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multimedia & Web Generations Quiz</title>
+<style>
+    body {
+        background-color: blanchedalmond;
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        line-height: 1.6;
+        color: #2c3e50;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
 
-        .quiz-box {
-            background-color: white;
-            padding: 25px;
-            border-radius: 12px;
-            border: 2px solid #d2b48c;
-            max-width: 750px;
-            margin: 0 auto 30px auto;
-            box-shadow: 3px 3px 10px rgba(0,0,0,0.05);
-        }
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgb(190, 203, 245);
+        color: white;
+        padding: 15px 30px;
+        font-family: 'Comic Sans MS', cursive;
+    }
 
-        h1 { text-align: center; color: #5d4037; }
-        h2 { border-bottom: 2px solid #deb887; padding-bottom: 5px; color: #8b4513; }
+    header h1 {
+        font-size: 32px;
+        margin: 0;
+    }
 
-        .question {
-            font-weight: bold;
-            margin-top: 20px;
-            display: block;
-        }
+    .home-btn {
+        text-decoration: none;
+        background-color: white;
+        color: rgb(80, 100, 200);
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: bold;
+    }
 
-        .option {
-            margin: 8px 0;
-            display: block;
-        }
+    .quiz-box {
+        background-color: white;
+        padding: 25px;
+        border-radius: 12px;
+        border: 2px solid #d2b48c;
+        max-width: 750px;
+        margin: 20px auto;
+        box-shadow: 3px 3px 10px rgba(0,0,0,0.05);
+    }
 
-        button {
-            margin-top: 25px;
-            padding: 12px 25px;
-            background-color: #deb887;
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
-            border-radius: 8px;
-            transition: 0.3s;
-        }
+    h2 { border-bottom: 2px solid #deb887; padding-bottom: 5px; color: #8b4513; }
 
-        button:hover {
-            background-color: #cd853f;
-            color: white;
-        }
+    .question {
+        font-weight: bold;
+        margin-top: 20px;
+        display: block;
+    }
 
-        .result-text {
-            margin-top: 15px;
-            font-weight: bold;
-            font-size: 1.2em;
-            color: #2e8b57;
-        }
+    .option {
+        margin: 8px 0;
+        display: block;
+    }
 
-        .reference-box {
-            font-size: 0.85em;
-            color: #7f8c8d;
-            background: #fdfaf6;
-            padding: 10px;
-            margin-top: 10px;
-            border-radius: 5px;
-        }
-    </style>
+    button {
+        margin-top: 25px;
+        padding: 12px 25px;
+        background-color: #deb887;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+        border-radius: 8px;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background-color: #cd853f;
+        color: white;
+    }
+
+    .result-text {
+        margin-top: 15px;
+        font-weight: bold;
+        font-size: 1.2em;
+        color: #2e8b57;
+    }
+
+    .reference-box {
+        font-size: 0.85em;
+        color: #7f8c8d;
+        background: #fdfaf6;
+        padding: 10px;
+        margin-top: 10px;
+        border-radius: 5px;
+    }
+
+    .instructions, .links-box {
+        max-width: 750px;
+        margin: 0 auto 20px auto;
+        padding: 15px;
+        border-radius: 10px;
+        background-color: #f4f4f4;
+        font-size: 1em;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .links-box a {
+        background-color: #598aad;
+        color: white;
+        text-decoration: none;
+        padding: 12px;
+        text-align: center;
+        border-radius: 10px;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .links-box a:hover {
+        background-color: #3d6485;
+    }
+
+</style>
 </head>
 <body>
 
-<h1> ICT & Multimedia Mastery </h1>
+<header>
+    <h1>ICT & Multimedia Quiz</h1>
+    <a href="BookPager3.html" class="home-btn">Basic Lessons</a>
+</header>
+
+<div class="instructions">
+    🔹 Read each question carefully.<br>
+    🔹 Choose only one correct answer per question.<br>
+    🔹 Click the "Submit Answers" button to see your score.<br>
+    🔹 Refer to <strong>BookPager3.html</strong> for basic lessons and <strong>BookPagerAdv3.html</strong> for advanced lessons.<br>
+    🔹 Review your answers before submitting.
+</div>
 
 <div class="quiz-box" id="MultimediaQuiz">
     <h2>Multimedia & User Participation</h2>
@@ -102,6 +169,11 @@
     <div class="reference-box">
         <strong>Source Materials:</strong> Miller (2025), Peláez & Solano (2023), and Nasar (2023).
     </div>
+</div>
+
+<div class="links-box">
+    <a href="BookPager3.html" target="_blank">Go to Basic Lessons &gt;</a>
+    <a href="BookPagerAdv3.html" target="_blank">Go to Advanced Lessons &gt;</a>
 </div>
 
 <script>
