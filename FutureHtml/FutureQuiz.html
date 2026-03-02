@@ -135,6 +135,28 @@
         text-align: center;
     }
 
+    /* ===== Hyperlink Boxes ===== */
+    .links-box {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .links-box a {
+        background-color: #598aad;
+        color: white;
+        text-decoration: none;
+        padding: 12px;
+        text-align: center;
+        border-radius: 10px;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .links-box a:hover {
+        background-color: #3d6485;
+    }
+
     /* ===== Responsive ===== */
     @media (max-width: 900px) {
         .quiz-layout {
@@ -150,10 +172,13 @@
             max-height: 300px;
         }
 
-        /* Move instructions below questions for mobile */
         .instructions {
             order: 10;
             margin-top: 20px;
+        }
+
+        .links-box {
+            order: 11;
         }
     }
 </style>
@@ -199,7 +224,7 @@
         </div>
     </div>
 
-    <!-- Right side: image + instructions + check button -->
+    <!-- Right side: image + instructions + check button + links -->
     <div class="quiz-right">
         <img src="../Images/Screenshot 2026-02-15 144855.png" alt="Yahoo Web 1.0" class="quiz-img">
 
@@ -213,6 +238,11 @@
         <div class="check-section">
             <button onclick="checkAnswers()">Check Answers</button>
             <p id="result"></p>
+        </div>
+
+        <div class="links-box">
+            <a href="basic.html" target="_blank">Click here to go to the Basic Page &gt;</a>
+            <a href="advanced.html" target="_blank">Click here to go to the Advanced Page &gt;</a>
         </div>
     </div>
 
