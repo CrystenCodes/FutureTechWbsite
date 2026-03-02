@@ -2,75 +2,63 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title> ICT in the context of global communication </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ICT in the Context of Global Communication</title>
+
 <style>
-  html,body{height:100%;margin:0}
-  body{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:0;
-    background:
-      linear-gradient(180deg,#fbfbfb 0%, #f7d2d2 50%, #f3f3f3 100%);
-    font-family:system-ui,Arial,sans-serif;
-  }
-
-  body { position: relative; }
-video.player{
-  position: absolute;
-  right: 40px;
-  top: 40px;
-  width: 550px;
-  height: 100%;
-  border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+* {
+  box-sizing: border-box;
 }
 
-
-  middle {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
+html, body {
+  margin: 0;
+  font-family: system-ui, Arial, sans-serif;
+  background: linear-gradient(180deg,#fbfbfb 0%, #f7d2d2 50%, #f3f3f3 100%);
 }
 
-  h1 {
-  position: absolute;
-  left: 40px;
-  top: 5%;
-  transform: translateY(-50%);
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  padding: 30px 20px 10px 20px;
+}
+
+h1 {
+  margin: 0;
 }
 
 .interactive-content {
-  left: 40px;
-  top: 15%; 
-  width: 1000px; 
-  padding-right: 20px;
+  padding: 20px;
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
   line-height: 1.6;
-  position: absolute;
-  cursor: text; 
-  user-select: text;
+}
+
+p {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 .footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  margin-top: auto;
   background-color: rgba(206, 187, 187, 0.9);
   padding: 20px;
-  text-align: center;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
-  z-index: 100;
 }
 
 .tools-container {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
@@ -89,13 +77,12 @@ video.player{
 .tool-btn:hover {
   background-color: #555;
   transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.2);
 }
 
 .tool-btn.active {
-  background-color: #ffff00;
-  color: #000;
-  border-color: #ffff00;
+  background-color: yellow;
+  color: black;
+  border-color: yellow;
 }
 
 .highlighted {
@@ -103,65 +90,53 @@ video.player{
   color: black;
 }
 
-.content {
-  padding: 40px;
-  margin-bottom: 150px;
-}
+/* Larger screen improvements */
+@media (min-width: 768px) {
+  h1 {
+    font-size: 32px;
+  }
 
   p {
-  font-size: 16px;
-  color: #333;
-  margin-bottom: 10px; 
-  margin: 0 0 15px 0; 
-  position: relative;
+    font-size: 18px;
+  }
 }
-
-
-
 </style>
 </head>
+
 <body>
-<h1> Welcome to the basics </h1>
+
+<header>
+  <h1>Welcome to the Basics</h1>
+</header>
+
 <div id="content" class="interactive-content"> 
-  <p> Fourth Week: the current state of ICT technologies </p>
-  <br>
- <p style= "font-weight: bold;"> ICT in global communication </p>
- <p> ICT has became the main method of communication in today's society </p>
- <p> getting infromation and  education and attaining services from bussiness, hospitals etc.</p>
- <p> Context of communication in ICT:</p>
- <p> education: using computers to type reports, learning from course instructions, to keep the information of the students and schools </p>
- <p> Telecommunication: for computers it's used for sending pictures, letters etc.  </p>
- <p> commerce: shops and supermarket uses this to calculate the bills and effiency </p>
- <p> sports and recreation: used to calculate from the daily activities from sports</p>
- <p> arts and design: editing videos, photos and music, it is shared online by its creators </p>
- <p> Media and Visual Arts: used for animation, architechture and animation </p>
- <br>
- <a> it has alot of uses and it is currently used in our society, and will still improve upon the coming years </a>
+  <p>Fourth Week: the current state of ICT technologies</p>
 
+  <p class="bold">ICT in Global Communication</p>
 
-  
+  <p>ICT has become the main method of communication in today's society.</p>
+  <p>It helps in getting information, education, and accessing services from businesses, hospitals, etc.</p>
 
+  <p class="bold">Context of Communication in ICT:</p>
 
+  <p><strong>Education:</strong> Using computers to type reports, follow course instructions, and store student/school information.</p>
+  <p><strong>Telecommunication:</strong> Sending pictures, letters, and messages through digital systems.</p>
+  <p><strong>Commerce:</strong> Shops and supermarkets use ICT to calculate bills and improve efficiency.</p>
+  <p><strong>Sports and Recreation:</strong> Used to track daily sports activities and performance.</p>
+  <p><strong>Arts and Design:</strong> Editing videos, photos, and music, which are shared online.</p>
+  <p><strong>Media and Visual Arts:</strong> Used for animation, architecture, and digital design.</p>
 
-
+  <p>ICT has many uses in our society and will continue to improve in the coming years.</p>
 </div>
 
 <footer class="footer">
   <div class="tools-container">
-    <button class="tool-btn" id="highlighterBtn" onclick="selectTool('highlighter', this)" title="Highlighter"> Highlighter </button>
-    <button class="tool-btn" id="eraserBtn" onclick="selectTool('eraser', this)" title="Eraser">
-   Eraser
-</button>    
+    <button class="tool-btn" onclick="selectTool('highlighter', this)">Highlighter</button>
+    <button class="tool-btn" onclick="selectTool('eraser', this)">Eraser</button>    
   </div>
 </footer>
 
-
-  <div class="middle" aria-hidden="true"></div>
-
-
-  <script>
-
-
+<script>
 const TOOLS = {
   HIGHLIGHTER: 'highlighter',
   ERASER: 'eraser'
@@ -169,20 +144,15 @@ const TOOLS = {
 
 let currentTool = null;
 
-// Sets the active tool and updates button UI
 function selectTool(tool, element) {
   currentTool = tool;
   document.querySelectorAll('.tool-btn').forEach(btn => btn.classList.remove('active'));
-  if (element) {
-    element.classList.add('active');
-  }
+  element.classList.add('active');
 }
 
-// Listens for text selection
 document.addEventListener('mouseup', () => {
   setTimeout(() => {
     const selection = window.getSelection();
-    
     if (!currentTool || selection.isCollapsed) return;
 
     const range = selection.getRangeAt(0);
@@ -195,20 +165,20 @@ document.addEventListener('mouseup', () => {
     if (currentTool === TOOLS.ERASER) {
       removeFormatting(range);
     } else {
-      applyFormatting(range, currentTool);
+      applyFormatting(range);
     }
 
     selection.removeAllRanges();
   }, 20);
 });
-function applyFormatting(range, tool) {
+
+function applyFormatting(range) {
   const span = document.createElement('span');
   span.className = 'highlighted';
-  
+
   try {
     range.surroundContents(span);
-  } catch (e) {
-    
+  } catch {
     const contents = range.extractContents();
     span.appendChild(contents);
     range.insertNode(span);
@@ -229,13 +199,7 @@ function removeFormatting(range) {
     parent.normalize();
   }
 }
+</script>
 
-
-
-  
-
-
-
-  </script>
 </body>
 </html>
