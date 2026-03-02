@@ -1,101 +1,216 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-    <title> pages </title>
-
-</head>
-<body>
-
-
-    <div id="Ayokona"> 
-    <h1> pages </h1>
-
-</div>
-    <br>
-    <div id="lessons">
-        <hr>
-        <a href="BookDesign2.html"> Imaging and Designing </a>
-        <hr>
-        <a href="BookDesign.html"> Applied Productivity Tools </a>
-        <hr>
-        <a href="BookDesign3.html"> Collabarative Tools For ICT </a>
-        <hr>
-        <a href="BookDesign4.html"> Team structure and dynamics for ICT content </a>
-        <hr>
-
-
-    </div>
-
-    <div class="container">
-        <footer class="footer"></footer>
-        <span> © Future Tech 2025 / Designed by Grade 12 TVL-ICT Group 2 </span>
-    
-    </div>
-
-
-
-    </div>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ICT Lessons</title>
 
 <style>
 
-    body {
+/* ===== Body ===== */
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: linear-gradient(to bottom, blanchedalmond, #fff);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
-        background-color: blanchedalmond;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    }
-    
+/* ===== Header ===== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(190, 203, 245);
+    padding: 20px 40px;
+    color: white;
+}
 
-    #lessons a {
+header h1 {
+    margin: 0;
+    font-family: 'Comic Sans MS', cursive;
+    font-size: 40px;
+}
 
-    line-break: normal;
+/* ===== Homepage Button ===== */
+.home-btn {
+    background-color: white;
+    color: rgb(80, 100, 200);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.home-btn:hover {
+    background-color: #f2f2f2;
+}
+
+/* ===== Main Layout ===== */
+.main-layout {
+    flex: 1;
+    display: flex;
+    width: 100%;
+}
+
+/* ===== Lessons Section ===== */
+#lessons {
+    flex: 3;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+/* ===== Lesson Boxes ===== */
+.lesson-box {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    transition: 0.3s ease;
     text-decoration: none;
     color: black;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: x-large;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 250px;
+}
+
+.lesson-box:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+}
+
+.lesson-box h2 {
+    margin-top: 0;
+}
+
+.lesson-box p {
+    line-height: 1.6;
+}
+
+/* ===== Side Info Panel ===== */
+.side-panel {
+    flex: 1;
+    background-color: #f4f4f4;
+    padding: 30px;
+    border-left: 3px solid #ddd;
+}
+
+.side-panel h3 {
+    margin-top: 0;
+}
+
+.side-panel p {
+    line-height: 1.6;
+}
+
+/* ===== Footer ===== */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #f4f4f4;
+    color: rgb(113, 173, 230);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+
+    .main-layout {
+        flex-direction: column;
     }
 
-    #lessons hr {
-       
-      border: outset;
-      border-top: solid black;
-       margin-top: 10px;
+    .side-panel {
+        border-left: none;
+        border-top: 3px solid #ddd;
     }
 
-    .container {
-
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        color: rgb(113, 173, 230);
-       border-style: outset;
-       margin-top: 302px;
-
+    header h1 {
+        font-size: 28px;
     }
 
-    #Ayokona {
-       text-align: center;
-       display: flex;
-       background-color: rgb(190, 203, 245);
-       color: white;
-       width: 100%;
-       justify-content: center;
-       font-family: 'Comic Sans MS', 'Comic Sans', cursive;
-       height: 200px;
-       align-items: center;
-       font-size: 60px;
-       border-style: solid;
-       border-color: white;
-       border-radius: 10px;
-    }
-
-
-
-
+}
 
 </style>
+</head>
+
+<body>
+
+<header>
+    <h1>ICT Lessons</h1>
+    <a href="index.html" class="home-btn">Homepage</a>
+</header>
+
+<div class="main-layout">
+
+    <div id="lessons">
+
+        <a href="BookDesign2.html" class="lesson-box">
+            <h2>Imaging and Designing</h2>
+            <p>
+                Learn the fundamentals of digital image editing and graphic design.
+                Explore tools used for creating posters, layouts, and visual content
+                for media and communication.
+            </p>
+        </a>
+
+        <a href="BookDesign.html" class="lesson-box">
+            <h2>Applied Productivity Tools</h2>
+            <p>
+                Understand how productivity software like word processors,
+                spreadsheets, and presentation tools are used in ICT
+                to improve efficiency and organization.
+            </p>
+        </a>
+
+        <a href="BookDesign3.html" class="lesson-box">
+            <h2>Collaborative Tools for ICT</h2>
+            <p>
+                Discover digital tools that allow teams to work together online.
+                Learn about file sharing, communication platforms, and
+                real-time collaboration systems.
+            </p>
+        </a>
+
+        <a href="BookDesign4.html" class="lesson-box">
+            <h2>Team Structure and Dynamics</h2>
+            <p>
+                Explore how ICT teams are organized and how members
+                collaborate effectively. Understand leadership roles,
+                communication strategies, and teamwork in digital projects.
+            </p>
+        </a>
+
+    </div>
+
+    <div class="side-panel">
+        <h3>How to Use This Page</h3>
+        <p>
+            🔹 Click on any lesson box to open that topic.
+        </p>
+        <p>
+            🔹 Use the Homepage button to return to the main page.
+        </p>
+        <p>
+            🔹 Each lesson provides detailed explanations and interactive content.
+        </p>
+        <p>
+            On mobile devices, this panel will move below the lesson boxes
+            for easier viewing.
+        </p>
+    </div>
+
+</div>
+
+<footer>
+    © Future Tech 2025 / Designed by Grade 12 TVL-ICT Group 2
+</footer>
 
 </body>
-
-
-
 </html>
-
