@@ -2,75 +2,63 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title> convergent media and assistive media </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Convergent Media and Assistive Media</title>
+
 <style>
-  html,body{height:100%;margin:0}
-  body{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:0;
-    background:
-      linear-gradient(180deg,#fbfbfb 0%, #f7d2d2 50%, #f3f3f3 100%);
-    font-family:system-ui,Arial,sans-serif;
-  }
-
-  body { position: relative; }
-video.player{
-  position: absolute;
-  right: 40px;
-  top: 40px;
-  width: 550px;
-  height: 100%;
-  border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+* {
+  box-sizing: border-box;
 }
 
-
-  middle {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
+html, body {
+  margin: 0;
+  font-family: system-ui, Arial, sans-serif;
+  background: linear-gradient(180deg,#fbfbfb 0%, #f7d2d2 50%, #f3f3f3 100%);
 }
 
-  h1 {
-  position: absolute;
-  left: 40px;
-  top: 5%;
-  transform: translateY(-50%);
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  padding: 30px 20px 10px 20px;
+}
+
+h1 {
+  margin: 0;
 }
 
 .interactive-content {
-  left: 40px;
-  top: 15%; 
-  width: 1000px; 
-  padding-right: 20px;
+  padding: 20px;
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
   line-height: 1.6;
-  position: absolute;
-  cursor: text; 
-  user-select: text;
+}
+
+p {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 .footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  margin-top: auto;
   background-color: rgba(206, 187, 187, 0.9);
   padding: 20px;
-  text-align: center;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
-  z-index: 100;
 }
 
 .tools-container {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
@@ -89,13 +77,12 @@ video.player{
 .tool-btn:hover {
   background-color: #555;
   transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.2);
 }
 
 .tool-btn.active {
-  background-color: #ffff00;
-  color: #000;
-  border-color: #ffff00;
+  background-color: yellow;
+  color: black;
+  border-color: yellow;
 }
 
 .highlighted {
@@ -103,66 +90,54 @@ video.player{
   color: black;
 }
 
-.content {
-  padding: 40px;
-  margin-bottom: 150px;
-}
+/* PC Improvements */
+@media (min-width: 768px) {
+  h1 {
+    font-size: 32px;
+  }
 
   p {
-  font-size: 16px;
-  color: #333;
-  margin-bottom: 10px; 
-  margin: 0 0 15px 0; 
-  position: relative;
+    font-size: 18px;
+  }
 }
-
-
-
 </style>
 </head>
+
 <body>
-<h1> Welcome to the basics </h1>
+
+<header>
+  <h1>Welcome to the Basics</h1>
+</header>
+
 <div id="content" class="interactive-content"> 
-  <p> Third Week: the current state of ICT technologies </p>
-  <br>
- <p style= "font-weight: bold;"> convergent media and assistive media </p>
- <P> convergence is an approach towards common view which can be taught in several ways inlucidng:</P>
- <p> computing </p>
- <a> communication </p>
-  <p> Entetainment </p>
-  <p> there are several types of Convergence Including:</p>
-  <p> Digital Convertence: refers to the  convergences of various data through digital means, like texting, video etc</p>
-  <p> messaging: used for call centers, media companies, etc. </p>
-  <p> media convergence: the convergence of several media channels through digilization </p>
-  <p> content convergence: portability of content that can be mixed and matched to fit new contents it focuses on user satisfaction</p>
-  <br>
+  <p>Third Week: the current state of ICT technologies</p>
 
-  <p style="font-weight: bold;"> assistive media </p>
-  <p> assistive media is a type of media that is designed to help people with disabilities or special needs to access information and communication.</p>
-  <p>it can include a wide range of technologies and tools, such as screen readers, voice recognition software, and alternative input devices. assistive media can help people with disabilities to participate in the digital world and access information and communication that they might not otherwise be able to access. it can also help to improve the quality of life for people with disabilities by providing them with greater independence and access to resources. </p>
+  <p class="bold">Convergent Media and Assistive Media</p>
 
-  
+  <p>Convergence is an approach toward a common view which can be taught in several ways including:</p>
+  <p>Computing</p>
+  <p>Communication</p>
+  <p>Entertainment</p>
 
+  <p>There are several types of convergence including:</p>
+  <p><strong>Digital Convergence:</strong> Refers to the merging of various data through digital means like texting and video.</p>
+  <p><strong>Messaging:</strong> Used for call centers, media companies, etc.</p>
+  <p><strong>Media Convergence:</strong> The merging of several media channels through digitalization.</p>
+  <p><strong>Content Convergence:</strong> Portability of content that can be mixed and matched to fit new contexts, focusing on user satisfaction.</p>
 
-
-
+  <p class="bold">Assistive Media</p>
+  <p>Assistive media is designed to help people with disabilities or special needs access information and communication.</p>
+  <p>It includes tools such as screen readers, voice recognition software, and alternative input devices. Assistive media helps people participate in the digital world and improves independence and quality of life.</p>
 </div>
 
 <footer class="footer">
   <div class="tools-container">
-    <button class="tool-btn" id="highlighterBtn" onclick="selectTool('highlighter', this)" title="Highlighter"> Highlighter </button>
-    <button class="tool-btn" id="eraserBtn" onclick="selectTool('eraser', this)" title="Eraser">
-   Eraser
-</button>    
+    <button class="tool-btn" onclick="selectTool('highlighter', this)">Highlighter</button>
+    <button class="tool-btn" onclick="selectTool('eraser', this)">Eraser</button>    
   </div>
 </footer>
 
-  <div class="middle" aria-hidden="true"></div>
-
-
-  <script>
-
-
+<script>
 const TOOLS = {
   HIGHLIGHTER: 'highlighter',
   ERASER: 'eraser'
@@ -170,20 +145,15 @@ const TOOLS = {
 
 let currentTool = null;
 
-// Sets the active tool and updates button UI
 function selectTool(tool, element) {
   currentTool = tool;
   document.querySelectorAll('.tool-btn').forEach(btn => btn.classList.remove('active'));
-  if (element) {
-    element.classList.add('active');
-  }
+  element.classList.add('active');
 }
 
-// Listens for text selection
 document.addEventListener('mouseup', () => {
   setTimeout(() => {
     const selection = window.getSelection();
-    
     if (!currentTool || selection.isCollapsed) return;
 
     const range = selection.getRangeAt(0);
@@ -196,20 +166,20 @@ document.addEventListener('mouseup', () => {
     if (currentTool === TOOLS.ERASER) {
       removeFormatting(range);
     } else {
-      applyFormatting(range, currentTool);
+      applyFormatting(range);
     }
 
     selection.removeAllRanges();
   }, 20);
 });
-function applyFormatting(range, tool) {
+
+function applyFormatting(range) {
   const span = document.createElement('span');
   span.className = 'highlighted';
-  
+
   try {
     range.surroundContents(span);
-  } catch (e) {
-    
+  } catch {
     const contents = range.extractContents();
     span.appendChild(contents);
     range.insertNode(span);
@@ -230,13 +200,7 @@ function removeFormatting(range) {
     parent.normalize();
   }
 }
+</script>
 
-
-
-  
-
-
-
-  </script>
 </body>
 </html>
