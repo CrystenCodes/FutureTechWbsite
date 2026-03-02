@@ -1,9 +1,9 @@
-here<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Imaging and Design</title>
+<title>Productivity Tools</title>
 
 <style>
 html, body {
@@ -118,7 +118,8 @@ h1 {
   h1 {
     font-size: 22px;
   }
-  .interactive-content p, .interactive-content li {
+  .interactive-content p,
+  .interactive-content li {
     font-size: 14px;
   }
   .tool-btn {
@@ -131,27 +132,38 @@ h1 {
 }
 </style>
 </head>
+
 <body>
 
-<h1>Imaging and Design for the Online Environment</h1>
+<h1>Applied Productivity Tools</h1>
 
 <div class="content-wrapper">
   <div class="interactive-content">
-    <p>Applied imaging and design focus on creating visuals that are effective and clear across digital platforms. This includes layout, colors, image quality, and overall aesthetic that works on websites and apps.</p>
 
-    <p><strong>Key elements include:</strong></p>
+    <p><strong>Applied Productivity Tools</strong> refer to advanced software applications that help users complete tasks faster, more accurately, and more efficiently. These tools go beyond basic functions and support data processing, collaboration, and automation in both academic and professional environments.</p>
+
+    <p><strong>Common examples of productivity tools include:</strong></p>
     <ul>
-      <li>High-quality images optimized for web performance.</li>
-      <li>Clean and responsive layouts for different devices.</li>
-      <li>Consistent color schemes and typography for readability.</li>
-      <li>Interface designs that enhance user experience.</li>
+      <li>Word processors for creating formatted documents.</li>
+      <li>Spreadsheets for calculations, data analysis, and visualization.</li>
+      <li>Presentation software for communicating ideas visually.</li>
+      <li>Cloud-based collaboration platforms for real-time teamwork.</li>
     </ul>
 
-    <p>These practices ensure your content is professional, easy to understand, and visually appealing, regardless of the screen size or device used.</p>
+    <p><strong>Key features of advanced productivity tools:</strong></p>
+    <ul>
+      <li>Automation using formulas, functions, and macros.</li>
+      <li>Data visualization through charts and graphs.</li>
+      <li>Template and style management for consistent formatting.</li>
+      <li>Real-time collaboration and file sharing.</li>
+    </ul>
 
-    <p><strong>Why learn this:</strong> mastering web imaging and design allows you to create visually effective content that improves user engagement and communication online.</p>
+    <p>By mastering these tools, users can improve workflow efficiency, reduce manual errors, and enhance the quality of their outputs. Productivity tools are essential skills in modern digital workplaces and academic settings.</p>
 
-    <img src="../Images/sample_design.png" alt="Example of Web Design">
+    <p><strong>Why it is important to learn productivity tools:</strong> Understanding how to properly use advanced features allows individuals to work smarter, manage information effectively, and collaborate efficiently in today’s technology-driven environment.</p>
+
+    <img src="../Images/sample_design.png" alt="Productivity Tools Example">
+
   </div>
 </div>
 
@@ -214,7 +226,9 @@ function removeFormatting(range) {
                       .closest('.highlighted');
   if (parentSpan) {
     const parent = parentSpan.parentNode;
-    while (parentSpan.firstChild) parent.insertBefore(parentSpan.firstChild, parentSpan);
+    while (parentSpan.firstChild) {
+      parent.insertBefore(parentSpan.firstChild, parentSpan);
+    }
     parent.removeChild(parentSpan);
     parent.normalize();
   }
