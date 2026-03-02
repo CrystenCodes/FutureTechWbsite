@@ -13,18 +13,19 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    padding: 20px;
 }
 
 /* ===== Header ===== */
 header {
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: rgb(190, 203, 245);
-    padding: 20px;
+    padding: 20px 40px;
     color: white;
     font-family: 'Comic Sans MS', cursive;
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin: 10px;
 }
 
 header h1 {
@@ -32,22 +33,47 @@ header h1 {
     font-size: 36px;
 }
 
-/* ===== Quiz Container ===== */
+.home-btn {
+    background-color: white;
+    color: rgb(80, 100, 200);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.home-btn:hover {
+    background-color: #f2f2f2;
+}
+
+/* ===== Main Layout ===== */
+.main-layout {
+    flex: 1;
+    display: flex;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* ===== Quiz Section ===== */
 .quiz-container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    max-width: 800px;
-    margin: 0 auto;
+    gap: 25px;
+    width: 100%;
+    max-width: 900px;
 }
 
-/* ===== Quiz Box ===== */
 .quiz-box {
     background-color: white;
     padding: 25px;
     border-radius: 15px;
     border: 1px solid #d2b48c;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -58,12 +84,11 @@ header h1 {
     font-size: 18px;
 }
 
-/* ===== Inputs ===== */
 .quiz-box input[type="radio"] {
     margin-right: 10px;
 }
 
-/* ===== Button ===== */
+/* ===== Check Button ===== */
 button {
     align-self: flex-start;
     padding: 10px 25px;
@@ -95,6 +120,16 @@ button:hover {
     margin-top: 20px;
 }
 
+/* ===== Footer ===== */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #f4f4f4;
+    color: rgb(113, 173, 230);
+    margin-top: auto;
+    font-size: 14px;
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
     header h1 {
@@ -115,39 +150,45 @@ button:hover {
 
 <header>
     <h1>Quizzes</h1>
+    <a href="index.html" class="home-btn">Homepage</a>
 </header>
 
-<div class="quiz-container">
+<div class="main-layout">
+    <div class="quiz-container">
+        <div class="quiz-box">
+            <div class="question-block">
+                <p class="question">1. What is Web 2.0?</p>
+                <label><input type="radio" name="q1" value="a"> A Read-only web with static content</label><br>
+                <label><input type="radio" name="q1" value="b"> A Read-write web where users can interact and create content</label><br>
+                <label><input type="radio" name="q1" value="c"> A purely theoretical web that doesn't exist yet</label>
+            </div>
 
-    <div class="quiz-box" id="quiz">
-        <div class="question-block">
-            <p class="question">1. What is Web 2.0?</p>
-            <label><input type="radio" name="q1" value="a"> A Read-only web with static content</label><br>
-            <label><input type="radio" name="q1" value="b"> A Read-write web where users can interact and create content</label><br>
-            <label><input type="radio" name="q1" value="c"> A purely theoretical web that doesn't exist yet</label>
+            <div class="question-block">
+                <p class="question">2. Which type of AI is currently still a "theoretical concept"?</p>
+                <label><input type="radio" name="q2" value="a"> Narrow AI (Siri/Alexa)</label><br>
+                <label><input type="radio" name="q2" value="b"> General AI</label><br>
+                <label><input type="radio" name="q2" value="c"> Chatbots like ChatGPT</label>
+            </div>
+
+            <div class="question-block">
+                <p class="question">3. What is the main goal of Assistive Media?</p>
+                <label><input type="radio" name="q3" value="a"> To make websites look more colorful</label><br>
+                <label><input type="radio" name="q3" value="b"> To help people with disabilities access information</label><br>
+                <label><input type="radio" name="q3" value="c"> To speed up internet connections</label>
+            </div>
+
+            <button onclick="checkAnswers()">Check Answers</button>
+            <p id="result"></p>
         </div>
 
-        <div class="question-block">
-            <p class="question">2. Which type of AI is currently still a "theoretical concept"?</p>
-            <label><input type="radio" name="q2" value="a"> Narrow AI (Siri/Alexa)</label><br>
-            <label><input type="radio" name="q2" value="b"> General AI</label><br>
-            <label><input type="radio" name="q2" value="c"> Chatbots like ChatGPT</label>
-        </div>
-
-        <div class="question-block">
-            <p class="question">3. What is the main goal of Assistive Media?</p>
-            <label><input type="radio" name="q3" value="a"> To make websites look more colorful</label><br>
-            <label><input type="radio" name="q3" value="b"> To help people with disabilities access information</label><br>
-            <label><input type="radio" name="q3" value="c"> To speed up internet connections</label>
-        </div>
-
-        <button onclick="checkAnswers()">Check Answers</button>
-        <p id="result"></p>
+        <h3>Reference Lesson Image:</h3>
+        <img src="../Images/Screenshot 2026-02-15 144855.png" alt="Yahoo Web 1.0" class="reference">
     </div>
-
-    <h3>Reference Lesson Image:</h3>
-    <img src="../Images/Screenshot 2026-02-15 144855.png" alt="Yahoo Web 1.0" class="reference">
 </div>
+
+<footer>
+    © Future Tech 2025 / Designed by Grade 12 TVL-ICT Group 2
+</footer>
 
 <script>
 function checkAnswers() {
