@@ -1,79 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title> pages </title>
-</head>
-<body>
-
-    <div id="Ayokona"> 
-    <h1> References </h1>
-    </div>
-
-
-        <a href="#"> García-Martínez et al. (2020) - Digital Tools & Learning Environments </a>
-        <a href="#"> Oloyede & Ogunwale (2022) - Productivity Tools in Education </a>
-
-        <a href="#"> Wells, M. (2023) - UX and Interaction Design Guide </a>
-        <a href="#"> Gander & Vaidya (2024) - Think Like The Minimalist </a>
-
-        <a href="#"> Escobar-Castillejos et al. (2024) - Enhancing Methods with Digital Platforms </a>
-        
-        <div style="text-align: center;">
-            
-        </div>
-
-    <div class="container">
-        <footer class="footer"></footer>
-        <span> © Future Tech 2025 / Designed by Grade 12 TVL-ICT Group 2 </span>
-    </div>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ICT References</title>
 
 <style>
 
-    body {
-        background-color: blanchedalmond;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+/* ===== Body ===== */
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: linear-gradient(to bottom, blanchedalmond, #fff);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ===== Header ===== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(190, 203, 245);
+    padding: 20px 40px;
+    color: white;
+}
+
+header h1 {
+    margin: 0;
+    font-family: 'Comic Sans MS', cursive;
+    font-size: 40px;
+}
+
+/* ===== Homepage Button ===== */
+.home-btn {
+    background-color: white;
+    color: rgb(80, 100, 200);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.home-btn:hover {
+    background-color: #f2f2f2;
+}
+
+/* ===== Main Layout ===== */
+.main-layout {
+    flex: 1;
+    display: flex;
+    width: 100%;
+}
+
+/* ===== References Section ===== */
+#references {
+    flex: 3;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+/* ===== Reference Boxes ===== */
+.ref-box {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    transition: 0.3s ease;
+    text-decoration: none;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 150px;
+}
+
+.ref-box:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+}
+
+.ref-box h2 {
+    margin-top: 0;
+    font-size: 1.3em;
+}
+
+.ref-box p {
+    margin-top: 10px;
+    font-size: 0.95em;
+}
+
+/* ===== Side Panel ===== */
+.side-panel {
+    flex: 1;
+    background-color: #f4f4f4;
+    padding: 30px;
+    border-left: 3px solid #ddd;
+}
+
+.side-panel h3 {
+    margin-top: 0;
+}
+
+.side-panel p {
+    line-height: 1.6;
+}
+
+/* ===== Footer ===== */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #f4f4f4;
+    color: rgb(113, 173, 230);
+}
+
+/* ===== Links Styling ===== */
+.ref-box a {
+    color: #2c3e50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.ref-box a:hover {
+    color: #598aad;
+    text-decoration: underline;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+    .main-layout {
+        flex-direction: column;
     }
 
-    .container {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        color: rgb(113, 173, 230);
-        border-style: outset;
-        margin-top: 630px;
+    .side-panel {
+        border-left: none;
+        border-top: 3px solid #ddd;
     }
 
-    #Ayokona {
-       text-align: center;
-       display: flex;
-       background-color: rgb(190, 203, 245);
-       color: white;
-       width: 100%;
-       justify-content: center;
-       font-family: 'Comic Sans MS', 'Comic Sans', cursive;
-       height: 200px;
-       align-items: center;
-       font-size: 60px;
-       border-style: solid;
-       border-color: white;
-       border-radius: 10px;
+    header h1 {
+        font-size: 28px;
     }
-
-    a {
-        display: block;
-        margin: 20px auto;
-        font-size: larger;
-        text-align: center; /* Added for better alignment with your layout */
-        text-decoration: none;
-        color: black;
-    }
-
-    a:hover {
-        color: rgb(113, 173, 230);
-    }
+}
 
 </style>
+</head>
 
-</body>
-</html>
+<body>
+
+<header>
+    <h1>ICT References</h1>
+    <a href="../index.html" class="home-btn">Homepage</a>
+</header>
+
+<div class="main-layout">
+
+    <div id="references">
+
+        <a href="#" class="ref-box">
+            <h2>García-Martínez et al. (2020)</h2>
+            <p>Digital Tools & Learning Environments</p>
+        </a>
+
+        <a href="#" class="ref-box">
+            <h2>Oloyede & Ogunwale (2022)</h2>
+            <p>Productivity Tools in Education</p>
+        </a>
+
+        <a href="#" class="ref-box">
+            <h2>Wells, M. (2023)</h2>
+            <p>UX and Interaction Design Guide</p>
+        </a>
+
+        <a href="#" class="ref-box">
+            <h2>Gander & Vaidya (2024)</h2>
+            <p>Think Like The Minimalist</p>
+        </a>
+
+        <a href="#" class="ref-box">
+            <h2>Escobar-Castillejos et al. (2024)</h2>
+            <p>Enhancing Methods with Digital Platforms</p>
+        </a>
+
+    </div>
+
+    <div class="side-panel">
+        <h3>How to Use This Page</h3>
+        <p>🔹 Click on any reference box
