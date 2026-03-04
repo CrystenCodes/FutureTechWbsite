@@ -105,25 +105,21 @@ html, body {
 }
 
 /* ================= INFO CARDS ================= */
-.info-card {
-    background-color: #ffeb3b;
+.info-card-combined {
+    background-color: #a0e7e5; /* teal for desktop combined card */
     color: #000;
-    padding: 14px;
+    padding: 12px;
     border-radius: 8px;
     border: outset;
     font-size: 14px;
     line-height: 1.4;
+    height: auto;
 }
 
-.info-card h3 {
-    margin-top: 0;
-    text-align: center;
-}
-
-/* desktop span */
+/* hidden on mobile */
 .instructions-card,
 .about-card {
-    grid-column: span 2;
+    display: none;
 }
 
 /* ================= FOOTER ================= */
@@ -174,9 +170,42 @@ a {
         font-size: 12px;
     }
 
+    /* hide desktop combined card on mobile */
+    .info-card-combined {
+        display: none;
+    }
+
+    /* show separate cards */
     .instructions-card,
     .about-card {
+        display: block;
         grid-column: span 1;
+    }
+
+    /* mobile flex order: instructions top, modules middle, about bottom */
+    .card-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .instructions-card {
+        order: 0;
+        background-color: #ffeb99; /* yellow for instructions */
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 8px;
+        border: outset;
+    }
+    .card {
+        order: 1;
+        margin-bottom: 20px;
+    }
+    .about-card {
+        order: 2;
+        background-color: #b0f2b6; /* green for about */
+        margin-top: 10px;
+        padding: 10px;
+        border-radius: 8px;
+        border: outset;
     }
 
     .lower {
@@ -196,16 +225,15 @@ a {
 
 <div class="card-container">
 
-    <!-- ✅ INSTRUCTIONS TOP -->
-    <div class="info-card instructions-card">
-        <h3>Instructions</h3>
-        Click on one of the buttons on each card to go directly to the lessons,
-        quizzes, or reference material. To go back to the previous page press
-        the back button of your phone.
+    <!-- DESKTOP COMBINED INFO CARD -->
+    <div class="info-card-combined">
+        <h3>Instructions & About</h3>
+        Click on one of the buttons on each card to go directly to the lessons, quizzes, or reference material. To go back to the previous page press the back button of your phone.
+        <br><br>
+        Made by Grade 12-TVL-ICT Group 2. This website was made to help Grade 10 and 11 students transition to the new ICT curriculum. It contains lessons from Quarter 1–4, advanced topics, and quizzes to strengthen your skills.
     </div>
 
-    <!-- ===== YOUR ORIGINAL CARDS ===== -->
-
+    <!-- MODULE CARDS -->
     <div class="card">
         <img src="../Images/D1.jpg" alt="Productivity">
         <h2>Productivity</h2>
@@ -249,13 +277,15 @@ a {
         </div>
     </div>
 
-    <!-- ✅ ABOUT BOTTOM -->
+    <!-- MOBILE SEPARATE INFO CARDS -->
+    <div class="info-card instructions-card">
+        <h3>Instructions</h3>
+        Click on one of the buttons on each card to go directly to the lessons, quizzes, or reference material. To go back to the previous page press the back button of your phone.
+    </div>
+
     <div class="info-card about-card">
         <h3>About This Website</h3>
-        Made by Grade 12-TVL-ICT Group 2. This website was made to help Grade
-        10 and 11 students transition to the new ICT curriculum. It contains
-        lessons from Quarter 1–4, advanced topics, and quizzes to strengthen
-        your skills.
+        Made by Grade 12-TVL-ICT Group 2. This website was made to help Grade 10 and 11 students transition to the new ICT curriculum. It contains lessons from Quarter 1–4, advanced topics, and quizzes to strengthen your skills.
     </div>
 
 </div>
