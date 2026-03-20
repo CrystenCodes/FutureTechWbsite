@@ -1,165 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ICT References</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ICT References</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont,
-                "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background: linear-gradient(to bottom, blanchedalmond, #fff);
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+<style>
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: linear-gradient(to bottom, blanchedalmond, #fff);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #38250E; /* fixed */
-            padding: 20px 40px;
-            color: yellow; /* fixed */
-        }
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #38250E; /* changed */
+    padding: 20px 40px;
+    color: yellow; /* changed */
+}
 
-        header h1 {
-            margin: 0;
-            font-family: 'Comic Sans MS', cursive;
-            font-size: 40px;
-        }
+header h1 {
+    margin: 0;
+    font-family: 'Comic Sans MS', cursive;
+    font-size: 40px;
+}
 
-        .home-btn {
-            background-color: white;
-            color: #895129; /* fixed */
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            text-decoration: none;
-        }
+.home-btn {
+    background-color: white;
+    color: #895129; /* changed */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+}
 
-        .home-btn:hover {
-            background-color: #f2f2f2;
-        }
+.home-btn:hover {
+    background-color: #f2f2f2;
+}
 
-        .main-layout {
-            flex: 1;
-            display: flex;
-            width: 100%;
-        }
+.main-layout {
+    flex: 1;
+    display: flex;
+    width: 100%;
+}
 
-        #references {
-            flex: 3;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            padding: 40px;
-            box-sizing: border-box;
-        }
+#references {
+    flex: 3;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 40px;
+    box-sizing: border-box;
+}
 
-        .ref-box {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-            transition: 0.3s ease;
-            text-decoration: none;
-            color: black;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            min-height: 150px;
-        }
+.ref-box {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    transition: 0.3s ease;
+    text-decoration: none;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 150px;
+}
 
-        .ref-box:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
-        }
+.ref-box:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
 
-        .ref-box h2 {
-            margin-top: 0;
-            font-size: 1.2em;
-        }
+.ref-box h2 {
+    margin-top: 0;
+    font-size: 1.2em;
+}
 
-        .side-panel {
-            flex: 1;
-            background-color: #f4f4f4;
-            padding: 30px;
-            border-left: 3px solid #ddd;
-        }
+.side-panel {
+    flex: 1;
+    background-color: #f4f4f4;
+    padding: 30px;
+    border-left: 3px solid #ddd;
+}
 
-        footer {
-            text-align: center;
-            padding: 15px;
-            background-color: #f4f4f4;
-            color: rgb(113, 173, 230);
-        }
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #f4f4f4;
+    color: rgb(113, 173, 230);
+}
 
-        @media (max-width: 900px) {
-            .main-layout {
-                flex-direction: column;
-            }
+@media (max-width: 900px) {
+    .main-layout {
+        flex-direction: column;
+    }
 
-            .side-panel {
-                border-left: none;
-                border-top: 3px solid #ddd;
-            }
+    .side-panel {
+        border-left: none;
+        border-top: 3px solid #ddd;
+    }
 
-            header h1 {
-                font-size: 28px;
-            }
-        }
-    </style>
+    header h1 {
+        font-size: 28px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <header>
-        <h1>References</h1>
-        <a href="../index.html" class="home-btn">Homepage</a>
-    </header>
+<header>
+    <h1>References</h1>
+    <a href="../index.html" class="home-btn">Homepage</a>
+</header>
 
-    <div class="main-layout">
+<div class="main-layout">
 
-        <div id="references">
+    <div id="references">
 
-            <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.slideshare.net/slideshow/442824780richcontentintheonlineenvironmentpptx/267335577&ved=2ahUKEwjUnsK27ISTAxV5V2wGHaXJHIQQFnoECFUQAQ&usg=AOvVaw1k9MfJqb2f5PXsW9-CRZ5W"
-                class="ref-box" target="_blank">
-                <h2>Rich Content and User Experience in Multimedia</h2>
-                <p>Learn how rich multimedia content improves user engagement and experience.</p>
-            </a>
+        <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.slideshare.net/slideshow/442824780richcontentintheonlineenvironmentpptx/267335577&ved=2ahUKEwjUnsK27ISTAxV5V2wGHaXJHIQQFnoECFUQAQ&usg=AOvVaw1k9MfJqb2f5PXsW9-CRZ5W"
+            class="ref-box" target="_blank">
+            <h2>Rich Content and User Experience in Multimedia</h2>
+            <p>Learn how rich multimedia content improves user engagement and experience.</p>
+        </a>
 
-            <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.slideshare.net/slideshow/module-1-interactive-multimedia-copypptx/265236473&ved=2ahUKEwiJo7bc7ISTAxUSRmwGHXA4PLYQFnoECB0QAQ&sqi=2&usg=AOvVaw1zluKFLLjvub_foOLk8eLH"
-                class="ref-box" target="_blank">
-                <h2>Multimedia and Interactivity</h2>
-                <p>Explore how interactive multimedia enhances communication and learning.</p>
-            </a>
+        <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.slideshare.net/slideshow/module-1-interactive-multimedia-copypptx/265236473&ved=2ahUKEwiJo7bc7ISTAxUSRmwGHXA4PLYQFnoECB0QAQ&sqi=2&usg=AOvVaw1zluKFLLjvub_foOLk8eLH"
+            class="ref-box" target="_blank">
+            <h2>Multimedia and Interactivity</h2>
+            <p>Explore how interactive multimedia enhances communication and learning.</p>
+        </a>
 
-            <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.linkedin.com/pulse/web-10-vs-20-beginning-internet-understand-differences-&ved=2ahUKEwjZlvPt7ISTAxVWU2wGHbPEA4oQFnoECEUQAQ&usg=AOvVaw2DCyxDZJuyDdZVtyZosx-V"
-                class="ref-box" target="_blank">
-                <h2>User Experience on Web 1.0 and Web 2.0</h2>
-                <p>Understand the differences in user experience between early and modern web platforms.</p>
-            </a>
-
-        </div>
-
-        <div class="side-panel">
-            <h3>How to Use This Page</h3>
-            <p>🔹 Click any reference card to open the source.</p>
-            <p>🔹 Use the Homepage button to return to the main page.</p>
-            <p>🔹 These materials support your ICT research and lessons.</p>
-        </div>
+        <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.linkedin.com/pulse/web-10-vs-20-beginning-internet-understand-differences-&ved=2ahUKEwjZlvPt7ISTAxVWU2wGHbPEA4oQFnoECEUQAQ&usg=AOvVaw2DCyxDZJuyDdZVtyZosx-V"
+            class="ref-box" target="_blank">
+            <h2>User Experience on Web 1.0 and Web 2.0</h2>
+            <p>Understand the differences in user experience between early and modern web platforms.</p>
+        </a>
 
     </div>
 
-    <footer>
-        © Future Tech 2025 / Designed by Grade 12 TVL-ICT Group 2
-    </footer>
+    <div class="side-panel">
+        <h3>How to Use This Page</h3>
+        <p>🔹 Click any reference card to open the source.</p>
+        <p>🔹 Use the Homepage button to return to the main page.</p>
+        <p>🔹 These materials support your ICT research and lessons.</p>
+    </div>
+
+</div>
+
+<footer>
+    © Future Tech 2025 / Designed by Grade 12 TVL-ICT Group 2
+</footer>
 
 </body>
 </html>
