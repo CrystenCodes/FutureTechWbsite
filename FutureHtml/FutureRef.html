@@ -7,7 +7,6 @@
     <title>ICT References</title>
     
     <style>
-        /* ===== Body ===== */
         body {
             margin: 0;
             font-family: system-ui, -apple-system, BlinkMacSystemFont,
@@ -18,14 +17,13 @@
             min-height: 100vh;
         }
         
-        /* ===== Header ===== */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: rgb(190, 203, 245);
+            background-color: #38250E; /* fixed */
             padding: 20px 40px;
-            color: white;
+            color: yellow; /* fixed */
         }
         
         header h1 {
@@ -34,10 +32,9 @@
             font-size: 40px;
         }
         
-        /* ===== Homepage Button ===== */
         .home-btn {
             background-color: white;
-            color: rgb(80, 100, 200);
+            color: #895129; /* fixed */
             border: none;
             padding: 10px 20px;
             border-radius: 8px;
@@ -50,14 +47,12 @@
             background-color: #f2f2f2;
         }
         
-        /* ===== Main Layout ===== */
         .main-layout {
             flex: 1;
             display: flex;
             width: 100%;
         }
         
-        /* ===== References Section ===== */
         #references {
             flex: 3;
             display: grid;
@@ -67,7 +62,6 @@
             box-sizing: border-box;
         }
         
-        /* ===== Reference Boxes ===== */
         .ref-box {
             background: white;
             border-radius: 15px;
@@ -92,7 +86,6 @@
             font-size: 1.3em;
         }
         
-        /* ===== Side Panel ===== */
         .side-panel {
             flex: 1;
             background-color: #f4f4f4;
@@ -108,7 +101,6 @@
             line-height: 1.6;
         }
         
-        /* ===== Footer ===== */
         footer {
             text-align: center;
             padding: 15px;
@@ -116,7 +108,6 @@
             color: rgb(113, 173, 230);
         }
         
-        /* ===== Links Styling ===== */
         .ref-box a {
             color: #2c3e50;
             text-decoration: none;
@@ -129,7 +120,6 @@
             text-decoration: underline;
         }
         
-        /* ===== Responsive ===== */
         @media (max-width: 900px) {
             .main-layout {
                 flex-direction: column;
@@ -163,7 +153,7 @@
                 <p>Learn about the evolution of the web, from static pages to decentralized ecosystems.</p>
             </a>
             
-            <a href="https://www.coursera.org/articles/what-is-artificial-intelligence?msockid=380947825d1568db007d51a35c016963" class="ref-box" target="_blank">
+            <a href="https://www.coursera.org/articles/what-is-artificial-intelligence" class="ref-box" target="_blank">
                 <h2>Artificial Intelligence</h2>
                 <p>Explore the basics of AI, its types, and real-world applications.</p>
             </a>
